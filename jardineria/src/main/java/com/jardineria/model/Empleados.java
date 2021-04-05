@@ -2,8 +2,6 @@ package com.jardineria.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,9 +10,8 @@ import javax.persistence.Table;
 public class Empleados {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CODIGOEMPLEADO")
-	private int codigoEmpleado;
+	private String codigoEmpleado;
 	
 	@Column(name = "NOMBRE", length = 50, nullable = false)
 	private String nombre;
@@ -38,16 +35,16 @@ public class Empleados {
 		super();
 	}
 
-	public Empleados(int codigoEmpleado) {
+	public Empleados(String codigoEmpleado) {
 		super();
 		this.codigoEmpleado = codigoEmpleado;
 	}
 
-	public int getCodigoEmpleado() {
+	public String getCodigoEmpleado() {
 		return codigoEmpleado;
 	}
 
-	public void setCodigoEmpleado(int codigoEmpleado) {
+	public void setCodigoEmpleado(String codigoEmpleado) {
 		this.codigoEmpleado = codigoEmpleado;
 	}
 
@@ -100,7 +97,4 @@ public class Empleados {
 	}
 	
 	
-	
-	
-
 }

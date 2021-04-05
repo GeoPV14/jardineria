@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jardineria.model.Empleados;
 
 @Repository
-public interface EmpleadosRepository extends JpaRepository<Empleados, Integer>{
+public interface EmpleadosRepository extends JpaRepository<Empleados, String>{
 
 }
