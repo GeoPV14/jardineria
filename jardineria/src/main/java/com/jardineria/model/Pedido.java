@@ -13,22 +13,22 @@ import javax.persistence.Table;
 public class Pedido {
 	
 	@Id
-	@Column(name = "CODIGOPEDIDO")
+	@Column(name = "CODIGOPEDIDO", nullable = false)
 	private String codPedido;
 	
-	@Column(name = "FECHAPEDIDO")
+	@Column(name = "FECHAPEDIDO", nullable = false)
 	private Date fechPedido;
 	
-	@Column(name = "FECHAESPERADA")
+	@Column(name = "FECHAESPERADA", nullable = false)
 	private Date fechEsperada;
 	
-	@Column(name = "FECHACLIENTE")
+	@Column(name = "FECHAENTREGA")
 	private Date fechEntrega;
 	
-	@Column(name = "ESTADO")
+	@Column(name = "ESTADO", length = 15, nullable = false)
 	private String estado;
 	
-	@Column(name = "COMENTARIOS")
+	@Column(name = "COMENTARIOS", length = 200)
 	private String comentPedido;
 	
 	
