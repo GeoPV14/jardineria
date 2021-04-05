@@ -10,25 +10,25 @@ import javax.persistence.Table;
 public class Oficina {
 	
 	@Id
-	@Column(name = "CODIGOOFICINA")
+	@Column(name = "CODIGOOFICINA", nullable = false)
 	private String codOficina;
 	
-	@Column(name = "CIUDAD")
+	@Column(name = "CIUDAD", nullable = false)
 	private String ciudad;
 	
-	@Column(name = "PAIS")
+	@Column(name = "PAIS", nullable = false)
 	private String pais;
 	
 	@Column(name = "REGION")
 	private String region;
 	
-	@Column(name = "CODIGOPOSTAL")
+	@Column(name = "CODIGOPOSTAL", nullable = false)
 	private String cp;
 	
-	@Column(name = "TELEFONO")
+	@Column(name = "TELEFONO", nullable = false)
 	private String telefono;
 	
-	@Column(name = "LINEADIRECCION1")
+	@Column(name = "LINEADIRECCION1", nullable = false)
 	private String lineDirec01;
 	
 	@Column(name = "LINEADIRECCION2")
