@@ -12,9 +12,8 @@ import javax.persistence.Table;
 public class Clientes {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "CODIGOCLIENTE")
-	private int codigoCliente;
+	@Column(name = "CODIGOCLIENTE", length = 50)
+	private String codigoCliente;
 	
 	@Column(name = "NOMBRECLIENTE", length = 50, nullable = false)
 	private String nombreCliente;
@@ -56,16 +55,16 @@ public class Clientes {
 		super();
 	}
 
-	public Clientes(int codigoCliente) {
+	public Clientes(String codigoCliente) {
 		super();
 		this.codigoCliente = codigoCliente;
 	}
 
-	public int getCodigoCliente() {
+	public String getCodigoCliente() {
 		return codigoCliente;
 	}
 
-	public void setCodigoCliente(int codigoCliente) {
+	public void setCodigoCliente(String codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 

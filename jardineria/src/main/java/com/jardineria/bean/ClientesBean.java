@@ -2,7 +2,7 @@ package com.jardineria.bean;
 
 public class ClientesBean {
 	
-	private int codigoCliente;
+	private String codigoCliente;
 	private String nombreCliente;
 	private String nombreContacto;
 	private String apellidoContacto;
@@ -20,16 +20,16 @@ public class ClientesBean {
 		super();
 	}
 
-	public ClientesBean(int codigoCliente) {
+	public ClientesBean(String codigoCliente) {
 		super();
 		this.codigoCliente = codigoCliente;
 	}
 
-	public int getCodigoCliente() {
+	public String getCodigoCliente() {
 		return codigoCliente;
 	}
 
-	public void setCodigoCliente(int codigoCliente) {
+	public void setCodigoCliente(String codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 

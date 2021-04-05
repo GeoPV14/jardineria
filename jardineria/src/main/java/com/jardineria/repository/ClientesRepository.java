@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jardineria.model.Clientes;
 
 @Repository
-public interface ClientesRepository extends JpaRepository<Clientes, Integer>{
+public interface ClientesRepository extends JpaRepository<Clientes, String>{
 
 }
