@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.model.Empleados;
 import com.jardineria.repository.EmpleadosRepository;
-import com.jardineria.service.EmpleadosService;*/
+import com.jardineria.service.EmpleadosService;
 
-//@Service
-//@Transactional
-//public class EmpleadosServiceImpl implements EmpleadosService {
+@Service
+@Transactional
+public class EmpleadosServiceImpl implements EmpleadosService {
 
-	/*@Autowired
+	@Autowired
 	EmpleadosRepository empleadosRepo;
 
 	@Override
@@ -78,6 +78,6 @@ import com.jardineria.service.EmpleadosService;*/
 			BeanUtils.copyProperties(empleado, empleadosBean);
 		}
 		return empleadosBeanList;
-	}*/
+	}
 
-//}
+}*/

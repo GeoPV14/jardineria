@@ -1,6 +1,6 @@
 package com.jardineria.controller;
 
-import java.util.List;
+/*import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,4 +48,4 @@ public class DetallePedidoController {
 	public ResponseEntity<List<DetallePedidoBean>> BuscarTodo(){
 		return new ResponseEntity<>(this.detallePedidoService.findAllDetallePedido(),HttpStatus.OK);
 	}
-}
+}*/
