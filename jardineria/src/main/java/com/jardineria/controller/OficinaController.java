@@ -14,7 +14,7 @@ import com.jardineria.service.OficinaService;
 @RequestMapping(name = "/oficina")
 @RestController
 public class OficinaController {
-/*	
+	
 	@Autowired
 	private OficinaService oficeService;
 	
@@ -22,5 +22,5 @@ public class OficinaController {
 	public ResponseEntity<String> guardarOficina(@RequestBody OficinaBean oficinaBean){
 		return new ResponseEntity<>(this.oficeService.saveOficina(oficinaBean), HttpStatus.OK);
 	}
-*/
+
 }

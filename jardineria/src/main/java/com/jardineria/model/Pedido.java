@@ -1,13 +1,21 @@
 package com.jardineria.model;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.TemporalType;
+
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -17,11 +25,10 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CODIGOPEDIDO", length = 3, nullable = false)
-	private int codPedido;
+	private String codPedido;
 	
-	//@DateTimeFormat "dd/MM/yyyy"
+	
 	@Column(name = "FECHAPEDIDO", nullable = false)
-	//@Temporal(TemporalType.DATE)
 	private Date fechPedido;
 	
 	@Column(name = "FECHAESPERADA", nullable = false)
@@ -37,21 +44,21 @@ public class Pedido {
 	private String comentPedido;
 	
 	/* * * Relaciones * * */
-/*	
+	
 	@OneToMany(mappedBy = "pedido")
 	private List<Pedido> pedidoList;
 	
 	@ManyToOne
 	@JoinColumn(name = "codPedido")
 	private Pedido pedido;
-*/	
+	
 	/* * Contructores_Getters&Setters * */
 	
 	public Pedido() {
 	}
 	
 	
-	public Pedido(int codPedido, Date fechPedido, Date fechEsperada, Date fechEntrega, String estado,
+	public Pedido(String codPedido, Date fechPedido, Date fechEsperada, Date fechEntrega, String estado,
 			String comentPedido) {
 		this.codPedido = codPedido;
 		this.fechPedido = fechPedido;
@@ -60,17 +67,17 @@ public class Pedido {
 		this.estado = estado;
 		this.comentPedido = comentPedido;
 	}
-	public int getCodPedido() {
+	public String getCodPedido() {
 		return codPedido;
 	}
-	public void setCodPedido(int codPedido) {
+	public void setCodPedido(String codPedido) {
 		this.codPedido = codPedido;
 	}
 	public Date getFechPedido() {
 		return fechPedido;
 	}
-	public void setFechPedido(Date fechPedido) {
-		this.fechPedido = fechPedido;
+	public void setFechPedido(Date date) {
+		this.fechPedido = date;
 	}
 	public Date getFechEsperada() {
 		return fechEsperada;

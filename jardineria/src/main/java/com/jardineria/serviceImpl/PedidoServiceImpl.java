@@ -1,5 +1,6 @@
 package com.jardineria.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -16,27 +17,35 @@ import com.jardineria.service.PedidoService;
 @Transactional
 public class PedidoServiceImpl implements PedidoService{
 	
-	//@Autowired
-	//private PedidoRepository pedidoRepo;
+	@Autowired
+	private PedidoRepository pedidoRepo;
 
 	@Override
-	public int savePedido(PedidoBean pedidoBean) {
+	public String savePedido(PedidoBean pedidoBean) {
 		
 		Pedido pedido = new Pedido();
 		
+		pedido.setCodPedido(pedidoBean.getCodPedido());
 		pedido.setFechPedido(pedidoBean.getFechPedido());
 		pedido.setFechEsperada(pedidoBean.getFechEsperada());
 		pedido.setFechEntrega(pedidoBean.getFechEntrega());
 		pedido.setEstado(pedidoBean.getEstado());
 		pedido.setComentPedido(pedidoBean.getComentPedido());
 		
-		//pedidoRepo.save(pedido);
+		pedidoRepo.save(pedido);
 		
 		return pedido.getCodPedido();
 	}
 
 	@Override
 	public boolean updatePedido(PedidoBean pedidoBean) {
+		
+		Date date = new Date();
+		
+		Pedido p = new Pedido();
+		
+		p.setFechPedido(date);
+		
 		
 		return false;
 	}

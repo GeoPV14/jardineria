@@ -1,8 +1,11 @@
 package com.jardineria.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,8 +40,8 @@ public class Oficina {
 	
 	/* * * Relaciones * * */
 	
-	//@OneToMany(mappedBy = "oficina")
-	//private List<Oficina> oficina;
+	@OneToMany(mappedBy = "oficina")
+	private List<Oficina> oficina;
 	
 	/* * Contructores_Getters&Setters * */
 	
