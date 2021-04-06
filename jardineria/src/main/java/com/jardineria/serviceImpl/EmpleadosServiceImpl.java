@@ -1,6 +1,6 @@
 package com.jardineria.serviceImpl;
 
-/*import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -80,4 +80,4 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 		return empleadosBeanList;
 	}
 
-}*/
+}

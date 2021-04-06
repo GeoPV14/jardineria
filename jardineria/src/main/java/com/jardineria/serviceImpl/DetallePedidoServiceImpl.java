@@ -1,6 +1,6 @@
 package com.jardineria.serviceImpl;
 
-/*import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -79,4 +79,4 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
 		return detallePedidoBeanList;
 	}
 
-}*/
+}

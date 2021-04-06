@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +28,14 @@ public class DetallePedido {
 	
 	@Column(name = "NUMEROLINEA", nullable = false)
 	private int numeroLinea;
+
+	/*@ManyToOne
+	@JoinColumn(name = "codPedido")
+	private Pedido pedido;
+	
+	@ManyToOne
+	@JoinColumn(name = "codigoProducto")
+	private Productos producto;*/
 
 	public DetallePedido() {
 		super();
@@ -67,6 +77,23 @@ public class DetallePedido {
 	public void setNumeroLinea(int numeroLinea) {
 		this.numeroLinea = numeroLinea;
 	}
+
+	/*public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public Productos getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Productos producto) {
+		this.producto = producto;
+	}*/
+	
 	
 	
 

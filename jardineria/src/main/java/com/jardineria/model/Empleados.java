@@ -1,9 +1,16 @@
 package com.jardineria.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "EMPLEADOS")
@@ -30,6 +37,24 @@ public class Empleados {
 	
 	@Column(name = "PUESTO", length = 50)
 	private String puesto;
+	
+	@Column(name = "CODIGOOFICINA", length = 10)
+	private String codOficina;
+	
+	@Column(name = "CODIGOJEFE", length = 10)
+	private int codigoJefe;
+	
+	/*@ManyToOne
+	@JoinColumn(name = "codOficina")
+	private Oficina oficina;
+	
+	@ManyToOne
+    @MapsId("empleados")
+    @JoinColumn(name = "codigoEmpleado")
+    Empleados empleado;
+	
+	@OneToMany(mappedBy = "empleado")
+    List<Empleados> empJefe;*/
 
 	public Empleados() {
 		super();
@@ -95,6 +120,47 @@ public class Empleados {
 	public void setPuesto(String puesto) {
 		this.puesto = puesto;
 	}
+
+	public String getCodOficina() {
+		return codOficina;
+	}
+
+	public void setCodOficina(String codOficina) {
+		this.codOficina = codOficina;
+	}
+
+	public int getCodigoJefe() {
+		return codigoJefe;
+	}
+
+	public void setCodigoJefe(int codigoJefe) {
+		this.codigoJefe = codigoJefe;
+	}
+
+	/*public Oficina getOficina() {
+		return oficina;
+	}
+
+	public void setOficina(Oficina oficina) {
+		this.oficina = oficina;
+	}
+
+	public Empleados getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleados empleado) {
+		this.empleado = empleado;
+	}
+
+	public List<Empleados> getEmpJefe() {
+		return empJefe;
+	}
+
+	public void setEmpJefe(List<Empleados> empJefe) {
+		this.empJefe = empJefe;
+	}*/
 	
+		
 	
 }
