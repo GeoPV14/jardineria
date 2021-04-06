@@ -16,7 +16,7 @@ public class Pagos {
 	@Column(name="FORMAPAGO")
 	private  String formaPAgo;
 	@Id
-	@Column(name="IDTRANSACCION")
+	@Column(name="IDTRANSACCION", length = 3, nullable = false)
 	private String idTransaccion;
 	@Column(name="FECHAPAGO")
 	private Date fechaPago;
