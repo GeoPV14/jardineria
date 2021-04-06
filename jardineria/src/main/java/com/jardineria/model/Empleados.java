@@ -10,8 +10,8 @@ import javax.persistence.Table;
 public class Empleados {
 	
 	@Id
-	@Column(name = "CODIGOEMPLEADO", length = 50, nullable = false)
-	private String codigoEmpleado;
+	@Column(name = "CODIGOEMPLEADO", nullable = false)
+	private int codigoEmpleado;
 	
 	@Column(name = "NOMBRE", length = 50, nullable = false)
 	private String nombre;
@@ -35,16 +35,16 @@ public class Empleados {
 		super();
 	}
 
-	public Empleados(String codigoEmpleado) {
+	public Empleados(int codigoEmpleado) {
 		super();
 		this.codigoEmpleado = codigoEmpleado;
 	}
 
-	public String getCodigoEmpleado() {
+	public int getCodigoEmpleado() {
 		return codigoEmpleado;
 	}
 
-	public void setCodigoEmpleado(String codigoEmpleado) {
+	public void setCodigoEmpleado(int codigoEmpleado) {
 		this.codigoEmpleado = codigoEmpleado;
 	}
 

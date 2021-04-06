@@ -2,7 +2,7 @@ package com.jardineria.bean;
 
 public class EmpleadosBean {
 	
-	private String codigoEmpleado;
+	private int codigoEmpleado;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
@@ -14,7 +14,7 @@ public class EmpleadosBean {
 		super();
 	}
 
-	public EmpleadosBean(String codigoEmpleado, String nombre, String apellido1, String apellido2, String extension,
+	public EmpleadosBean(int codigoEmpleado, String nombre, String apellido1, String apellido2, String extension,
 			String email, String puesto) {
 		super();
 		this.codigoEmpleado = codigoEmpleado;
@@ -26,11 +26,11 @@ public class EmpleadosBean {
 		this.puesto = puesto;
 	}
 
-	public String getCodigoEmpleado() {
+	public int getCodigoEmpleado() {
 		return codigoEmpleado;
 	}
 
-	public void setCodigoEmpleado(String codigoEmpleado) {
+	public void setCodigoEmpleado(int codigoEmpleado) {
 		this.codigoEmpleado = codigoEmpleado;
 	}
 
