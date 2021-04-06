@@ -1,8 +1,13 @@
 package com.jardineria.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +53,16 @@ public class Clientes {
 	
 	@Column(name = "LIMITECREDITO")
 	private double limiteCredito;
+	
+	@OneToMany(mappedBy = "clientes")
+	private List<Pagos> pagoList;
+	
+	@ManyToOne 
+	@JoinColumn(name = "CODIGOEMPLEADO")
+	private Empleados empleado;
+	
+	@OneToMany(mappedBy = "clientes")
+	private List<Pedido> pedidoList;
 
 	public Clientes() {
 		super();
