@@ -8,4 +8,5 @@ import com.jardineria.model.Pedido;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, String>{
 
+
 }

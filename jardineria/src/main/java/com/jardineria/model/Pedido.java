@@ -1,5 +1,6 @@
 package com.jardineria.model;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -44,21 +46,27 @@ public class Pedido {
 	private String comentPedido;
 	
 	/* * * Relaciones * * */
+
 	
+
 	@OneToMany(mappedBy = "pedido")
 	private List<Pedido> pedidoList;
 	
 	@ManyToOne
 	@JoinColumn(name = "codPedido")
 	private Pedido pedido;
+
 	
+
 	/* * Contructores_Getters&Setters * */
 	
 	public Pedido() {
 	}
 	
 	
+
 	public Pedido(String codPedido, Date fechPedido, Date fechEsperada, Date fechEntrega, String estado,
+
 			String comentPedido) {
 		this.codPedido = codPedido;
 		this.fechPedido = fechPedido;
@@ -67,17 +75,21 @@ public class Pedido {
 		this.estado = estado;
 		this.comentPedido = comentPedido;
 	}
+
 	public String getCodPedido() {
 		return codPedido;
 	}
 	public void setCodPedido(String codPedido) {
+
 		this.codPedido = codPedido;
 	}
 	public Date getFechPedido() {
 		return fechPedido;
 	}
+
 	public void setFechPedido(Date date) {
 		this.fechPedido = date;
+
 	}
 	public Date getFechEsperada() {
 		return fechEsperada;

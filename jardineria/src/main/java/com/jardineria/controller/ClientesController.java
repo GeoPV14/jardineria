@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.service.ClientesService;
 
+
 @RestController
 @RequestMapping("/clientes")
+
 public class ClientesController {
 	@Autowired
 	private ClientesService clientesService;
