@@ -10,7 +10,8 @@ import javax.persistence.Table;
 public class Oficina {
 	
 	@Id
-	@Column(name = "CODIGOOFICINA", nullable = false)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CODIGOOFICINA", length = 3, nullable = false)
 	private String codOficina;
 	
 	@Column(name = "CIUDAD", nullable = false)
@@ -33,9 +34,13 @@ public class Oficina {
 	
 	@Column(name = "LINEADIRECCION2")
 	private String lineDirec02;
-
 	
-	/*Contructores_Getters&Setters*/
+	/* * * Relaciones * * */
+	
+	//@OneToMany(mappedBy = "oficina")
+	//private List<Oficina> oficina;
+	
+	/* * Contructores_Getters&Setters * */
 	
 	
 	public Oficina() {

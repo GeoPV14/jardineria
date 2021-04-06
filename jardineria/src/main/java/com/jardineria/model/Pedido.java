@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,10 +15,13 @@ import javax.persistence.Table;
 public class Pedido {
 	
 	@Id
-	@Column(name = "CODIGOPEDIDO", nullable = false)
-	private String codPedido;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CODIGOPEDIDO", length = 3, nullable = false)
+	private int codPedido;
 	
+	//@DateTimeFormat "dd/MM/yyyy"
 	@Column(name = "FECHAPEDIDO", nullable = false)
+	//@Temporal(TemporalType.DATE)
 	private Date fechPedido;
 	
 	@Column(name = "FECHAESPERADA", nullable = false)
@@ -31,17 +36,22 @@ public class Pedido {
 	@Column(name = "COMENTARIOS", length = 200)
 	private String comentPedido;
 	
+	/* * * Relaciones * * */
+/*	
+	@OneToMany(mappedBy = "pedido")
+	private List<Pedido> pedidoList;
 	
-	//Agregar ORM de codigo del cliente
-
-	
-	/*Contructores_Getters&Setters*/
+	@ManyToOne
+	@JoinColumn(name = "codPedido")
+	private Pedido pedido;
+*/	
+	/* * Contructores_Getters&Setters * */
 	
 	public Pedido() {
 	}
 	
 	
-	public Pedido(String codPedido, Date fechPedido, Date fechEsperada, Date fechEntrega, String estado,
+	public Pedido(int codPedido, Date fechPedido, Date fechEsperada, Date fechEntrega, String estado,
 			String comentPedido) {
 		this.codPedido = codPedido;
 		this.fechPedido = fechPedido;
@@ -50,10 +60,10 @@ public class Pedido {
 		this.estado = estado;
 		this.comentPedido = comentPedido;
 	}
-	public String getCodPedido() {
+	public int getCodPedido() {
 		return codPedido;
 	}
-	public void setCodPedido(String codPedido) {
+	public void setCodPedido(int codPedido) {
 		this.codPedido = codPedido;
 	}
 	public Date getFechPedido() {
