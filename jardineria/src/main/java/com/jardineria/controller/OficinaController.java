@@ -14,7 +14,7 @@ import com.jardineria.service.OficinaService;
 @RequestMapping(name = "/oficina")
 @RestController
 public class OficinaController {
-<<<<<<< HEAD
+
 /*	
 =======
 	
@@ -28,7 +28,7 @@ public class OficinaController {
 	}
 <<<<<<< HEAD
 */
-=======
 
->>>>>>> 93fcaacc50fd5c75537f9f136c075796d3b20807
+
+
 }

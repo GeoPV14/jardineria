@@ -16,8 +16,8 @@ public class Productos {
 	private String codigoProducto;
 	@Column(name="NOMBRE")
 	private String nombre;
-	@ManyToOne
-	@JoinColumn(name = "GAMA")
+	//@ManyToOne
+	//@JoinColumn(name = "GAMA")
 	private String gama;
 	@Column(name="DIMENSIONES")
 	private String dimensiones;

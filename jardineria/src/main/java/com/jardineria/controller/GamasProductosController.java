@@ -12,22 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.RequestMapping;
->>>>>>> 93fcaacc50fd5c75537f9f136c075796d3b20807
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.GamasProductosBean;
 import com.jardineria.service.GamasProductosService;
 
-<<<<<<< HEAD
-@Controller
-@RestController("/gamaProducto")
-=======
 @RestController
 @RequestMapping("/gamaProducto")
->>>>>>> 93fcaacc50fd5c75537f9f136c075796d3b20807
 public class GamasProductosController {
 	@Autowired
 	private GamasProductosService gamaProductoService;

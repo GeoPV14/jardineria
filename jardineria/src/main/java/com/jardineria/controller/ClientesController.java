@@ -12,22 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.RequestMapping;
->>>>>>> 93fcaacc50fd5c75537f9f136c075796d3b20807
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.service.ClientesService;
 
-<<<<<<< HEAD
-@Controller
-@RestController("/clientes")
-=======
+
 @RestController
 @RequestMapping("/clientes")
->>>>>>> 93fcaacc50fd5c75537f9f136c075796d3b20807
+
 public class ClientesController {
 	@Autowired
 	private ClientesService clientesService;
