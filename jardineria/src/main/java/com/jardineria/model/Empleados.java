@@ -1,29 +1,43 @@
-package com.jardineria.bean;
+package com.jardineria.model;
 
-public class EmpleadosBean {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "EMPLEADOS")
+public class Empleados {
 	
+	@Id
+	@Column(name = "CODIGOEMPLEADO", nullable = false)
 	private int codigoEmpleado;
-	private String nombre;
-	private String apellido1;
-	private String apellido2;
-	private String extension;
-	private String email;
-	private String puesto;
 	
-	public EmpleadosBean() {
+	@Column(name = "NOMBRE", length = 50, nullable = false)
+	private String nombre;
+	
+	@Column(name = "APELLIDO1", length = 50, nullable = false)
+	private String apellido1;
+	
+	@Column(name = "APELLIDO2", length = 50)
+	private String apellido2;
+	
+	@Column(name = "EXTENSION", length = 50, nullable = false)
+	private String extension;
+	
+	@Column(name = "EMAIL", length = 50, nullable = false)
+	private String email;
+	
+	@Column(name = "PUESTO", length = 50)
+	private String puesto;
+
+	public Empleados() {
 		super();
 	}
 
-	public EmpleadosBean(int codigoEmpleado, String nombre, String apellido1, String apellido2, String extension,
-			String email, String puesto) {
+	public Empleados(int codigoEmpleado) {
 		super();
 		this.codigoEmpleado = codigoEmpleado;
-		this.nombre = nombre;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.extension = extension;
-		this.email = email;
-		this.puesto = puesto;
 	}
 
 	public int getCodigoEmpleado() {
@@ -81,7 +95,6 @@ public class EmpleadosBean {
 	public void setPuesto(String puesto) {
 		this.puesto = puesto;
 	}
-	
 	
 	
 }

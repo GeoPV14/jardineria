@@ -4,21 +4,24 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="PAGOS")
 public class Pagos {
 
-	@Column(name="CODIGOCLIENTE")
-	private double codigoCliente;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "CODIGOCLIENTE")
+	private Clientes codigoCliente;
 	@Column(name="FORMAPAGO")
 	private  String formaPAgo;
 	@Id
-	@Column(name="IDTRANSACCION")
+	@Column(name="IDTRANSACCION", length = 3, nullable = false)
 	private String idTransaccion;
 	@Column(name="FECHAPAGO")
 	private Date fechaPago;
@@ -27,17 +30,17 @@ public class Pagos {
 	
 	public Pagos() {
 	}
-	public Pagos(double codigoCliente, String formaPAgo, String idTransaccion, Date fechaPago, double cantidad) {
+	public Pagos(Clientes codigoCliente, String formaPAgo, String idTransaccion, Date fechaPago, double cantidad) {
 		this.codigoCliente = codigoCliente;
 		this.formaPAgo = formaPAgo;
 		this.idTransaccion = idTransaccion;
 		this.fechaPago = fechaPago;
 		this.cantidad = cantidad;
 	}
-	public double getCodigoCliente() {
+	public Clientes getCodigoCliente() {
 		return codigoCliente;
 	}
-	public void setCodigoCliente(double codigoCliente) {
+	public void setCodigoCliente(Clientes codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 	public String getFormaPAgo() {

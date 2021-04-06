@@ -3,6 +3,8 @@ package com.jardineria.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -10,11 +12,12 @@ import javax.persistence.Table;
 public class Productos {
 
 	@Id
-	@Column(name="CODIGOPRODUCTO")
+	@Column(name="CODIGOPRODUCTO", length = 3, nullable = false)
 	private String codigoProducto;
 	@Column(name="NOMBRE")
 	private String nombre;
-	@Column(name="GAMA")
+	@ManyToOne
+	@JoinColumn(name = "GAMA")
 	private String gama;
 	@Column(name="DIMENSIONES")
 	private String dimensiones;
