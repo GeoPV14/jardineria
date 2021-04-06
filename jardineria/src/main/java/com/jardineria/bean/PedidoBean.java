@@ -1,6 +1,6 @@
 package com.jardineria.bean;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class PedidoBean {
 	private String codPedido;

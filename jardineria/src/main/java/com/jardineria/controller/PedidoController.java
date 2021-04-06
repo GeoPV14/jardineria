@@ -14,12 +14,12 @@ import com.jardineria.service.PedidoService;
 @RequestMapping(name = "/pedido")
 @RestController
 public class PedidoController {
-/*	
+/*
 	@Autowired
 	private PedidoService pedidoService;
 	
 	@PostMapping(name = "/save")
-	public ResponseEntity<Integer> guardarPedido(@RequestBody PedidoBean pedidoBean){
+	public ResponseEntity<String> guardarPedido(@RequestBody PedidoBean pedidoBean){
 		return new ResponseEntity<>(this.pedidoService.savePedido(pedidoBean), HttpStatus.OK);
 	}
 */	

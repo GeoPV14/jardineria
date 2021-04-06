@@ -2,22 +2,13 @@ package com.jardineria.model;
 
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.TemporalType;
-
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -25,10 +16,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Pedido {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CODIGOPEDIDO", length = 3, nullable = false)
 	private String codPedido;
-	
 	
 	@Column(name = "FECHAPEDIDO", nullable = false)
 	private Date fechPedido;
@@ -48,13 +37,9 @@ public class Pedido {
 	/* * * Relaciones * * */
 
 	
-
-	@OneToMany(mappedBy = "pedido")
-	private List<Pedido> pedidoList;
-	
 	@ManyToOne
-	@JoinColumn(name = "codPedido")
-	private Pedido pedido;
+	@JoinColumn(name = "CODIGOCLIENTES")
+	private Clientes pedidoCliente;
 
 	
 

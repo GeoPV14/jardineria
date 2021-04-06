@@ -1,9 +1,11 @@
 package com.jardineria.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,8 @@ import com.jardineria.service.OficinaService;
 @Transactional
 public class OficinaServiceImpl implements OficinaService{
 	
-	//@Autowired
-	//private OficinaRepository oficeRepo;
+	@Autowired
+	private OficinaRepository oficeRepo;
 
 	@Override
 	public String saveOficina(OficinaBean oficinaBean) {
@@ -33,7 +35,7 @@ public class OficinaServiceImpl implements OficinaService{
 		oficina.setLineDirec01(oficinaBean.getLineDirec01());
 		oficina.setLineDirec02(oficinaBean.getLineDirec02());
 		
-		//oficeRepo.save(oficina);
+		oficeRepo.save(oficina);
 				
 		return oficina.getCodOficina();
 	}
@@ -52,8 +54,17 @@ public class OficinaServiceImpl implements OficinaService{
 
 	@Override
 	public List<OficinaBean> mostrarOficina() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Oficina> oficinaList = this.oficeRepo.findAll();
+		List<OficinaBean> oficinaBeanList = new ArrayList<>();
+		
+		for(Oficina ofi: oficinaList) {
+			
+			OficinaBean ofiBean = new OficinaBean();
+			BeanUtils.copyProperties(ofi, ofiBean);
+			oficinaBeanList.add(ofiBean);
+		}		
+		
+		return oficinaBeanList;
 	}
 
 	@Override
