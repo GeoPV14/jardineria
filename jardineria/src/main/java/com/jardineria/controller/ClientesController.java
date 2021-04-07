@@ -49,4 +49,9 @@ public class ClientesController {
 	public ResponseEntity<Boolean> eliminarCliente(@PathVariable("id") String id){
 		return new ResponseEntity<>(this.clientesService.deleteCliente(id), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findAllUsa")
+	public ResponseEntity<List<ClientesBean>> mostrarClientesUSA(){
+		return new ResponseEntity<>(this.clientesService.findClientesUSA(), HttpStatus.OK);
+	}
 }

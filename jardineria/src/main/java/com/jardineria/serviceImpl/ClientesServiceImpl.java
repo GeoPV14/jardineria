@@ -71,4 +71,18 @@ public class ClientesServiceImpl implements ClientesService{
 		return true;
 	}
 
+	@Override
+	public List<ClientesBean> findClientesUSA() {
+		List<Clientes> clientesList = this.clientesRepo.buscaClientesAmericanos();
+		List<ClientesBean> clientesBeanList = new ArrayList<>();
+		
+		for(Clientes cliente : clientesList) {
+			ClientesBean clienteBean = new ClientesBean();
+			BeanUtils.copyProperties(cliente, clienteBean);
+			clientesBeanList.add(clienteBean);
+		}
+		
+		return clientesBeanList;
+	}
+
 }
