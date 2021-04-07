@@ -28,14 +28,14 @@ public class DetallePedido {
 	
 	@Column(name = "NUMEROLINEA", nullable = false)
 	private int numeroLinea;
-
-	/*@ManyToOne
-	@JoinColumn(name = "codPedido")
-	private Pedido pedido;
 	
 	@ManyToOne
 	@JoinColumn(name = "codigoProducto")
-	private Productos producto;*/
+	private Productos producto;
+	
+	@ManyToOne
+	@JoinColumn(name = "codPedido")
+	private Pedido pedido;
 
 	public DetallePedido() {
 		super();
@@ -78,21 +78,21 @@ public class DetallePedido {
 		this.numeroLinea = numeroLinea;
 	}
 
-	/*public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
-
 	public Productos getProducto() {
 		return producto;
 	}
 
 	public void setProducto(Productos producto) {
 		this.producto = producto;
-	}*/
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
 	
 	
 	

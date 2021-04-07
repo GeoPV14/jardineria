@@ -1,10 +1,13 @@
 package com.jardineria.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,8 +40,11 @@ public class Productos {
 	private double precioProveedor;
 	
 	@ManyToOne
-	@JoinColumn(name = "GAMA")
+	@JoinColumn(name = "CODIGOGAMA")
 	private GamasProductos gamaProducto;
+	
+	@OneToMany(mappedBy = "producto")
+	private List<DetallePedido> detallePedido;
 	
 	public Productos() {
 	}
@@ -108,5 +114,12 @@ public class Productos {
 	public void setGamaProducto(GamasProductos gamaProducto) {
 		this.gamaProducto = gamaProducto;
 	}
+	public List<DetallePedido> getDetallePedido() {
+		return detallePedido;
+	}
+	public void setDetallePedido(List<DetallePedido> detallePedido) {
+		this.detallePedido = detallePedido;
+	}
+	
 	
 }
