@@ -38,7 +38,7 @@ public class Pedido {
 
 	
 	@ManyToOne
-	@JoinColumn(name = "CODIGOCLIENTES")
+	@JoinColumn(name = "CODIGOCLIENTE")
 	private Clientes pedidoCliente;
 
 	
