@@ -3,7 +3,6 @@ package com.jardineria.service;
 import java.util.List;
 
 import com.jardineria.bean.ClientesBean;
-import com.jardineria.model.Clientes;
 
 public interface ClientesService {
 	

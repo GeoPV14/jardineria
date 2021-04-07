@@ -2,7 +2,6 @@ package com.jardineria.service;
 
 import java.util.List;
 
-import com.jardineria.bean.PedidoBean;
 import com.jardineria.bean.ProductosBean;
 
 public interface ProductosService {

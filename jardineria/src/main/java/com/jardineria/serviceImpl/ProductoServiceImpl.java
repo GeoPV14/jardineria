@@ -9,7 +9,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jardineria.bean.PedidoBean;
 import com.jardineria.bean.ProductosBean;
 import com.jardineria.model.Productos;
 import com.jardineria.repository.ProductosRepository;
