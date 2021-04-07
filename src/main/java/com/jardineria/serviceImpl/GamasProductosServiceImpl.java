@@ -61,8 +61,8 @@ public class GamasProductosServiceImpl implements GamasProductosService{
 	}
 
 	@Override
-	public boolean deleteGamaProducto(Integer id) {
-		GamasProductos gamaProducto = this.gamasProductosRepo.findById(id).orElseThrow();
+	public boolean deleteGamaProducto(String id) {
+		GamasProductos gamaProducto = this.gamasProductosRepo.findByGama(id);
 		this.gamasProductosRepo.delete(gamaProducto);
 		
 		return true;
