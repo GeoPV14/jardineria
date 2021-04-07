@@ -23,7 +23,6 @@ public class OficinaController {
 
 	@Autowired
 	private OficinaService oficeService;
-	
 	@PostMapping("/save")
 	public ResponseEntity<String> guardarOficina(@RequestBody OficinaBean oficinaBean){
 		return new ResponseEntity<>(this.oficeService.saveOficina(oficinaBean), HttpStatus.OK);
