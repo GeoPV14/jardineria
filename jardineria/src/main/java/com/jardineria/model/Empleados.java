@@ -1,14 +1,10 @@
 package com.jardineria.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -44,17 +40,9 @@ public class Empleados {
 	@Column(name = "CODIGOJEFE", length = 10)
 	private int codigoJefe;
 	
-	/*@ManyToOne
+	@ManyToOne
 	@JoinColumn(name = "codOficina")
 	private Oficina oficina;
-	
-	@ManyToOne
-    @MapsId("empleados")
-    @JoinColumn(name = "codigoEmpleado")
-    Empleados empleado;
-	
-	@OneToMany(mappedBy = "empleado")
-    List<Empleados> empJefe;*/
 
 	public Empleados() {
 		super();
@@ -137,7 +125,7 @@ public class Empleados {
 		this.codigoJefe = codigoJefe;
 	}
 
-	/*public Oficina getOficina() {
+	public Oficina getOficina() {
 		return oficina;
 	}
 
@@ -145,21 +133,7 @@ public class Empleados {
 		this.oficina = oficina;
 	}
 
-	public Empleados getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(Empleados empleado) {
-		this.empleado = empleado;
-	}
-
-	public List<Empleados> getEmpJefe() {
-		return empJefe;
-	}
-
-	public void setEmpJefe(List<Empleados> empJefe) {
-		this.empJefe = empJefe;
-	}*/
+	
 	
 		
 	

@@ -1,9 +1,12 @@
 package com.jardineria.model;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,7 +40,8 @@ public class Oficina {
 	
 	/* * * Relaciones * * */
 	
-	
+	@OneToMany(mappedBy = "oficina")
+	private List<Empleados> empleados;
 	/* * Contructores_Getters&Setters * */
 	
 	
@@ -118,6 +122,14 @@ public class Oficina {
 
 	public void setLineDirec02(String lineDirec02) {
 		this.lineDirec02 = lineDirec02;
+	}
+
+	public List<Empleados> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleados> empleados) {
+		this.empleados = empleados;
 	}
 	
 	

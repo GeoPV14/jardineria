@@ -2,12 +2,14 @@ package com.jardineria.model;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -35,7 +37,9 @@ public class Pedido {
 	private String comentPedido;
 	
 	/* * * Relaciones * * */
-
+	
+	@OneToMany(mappedBy = "pedido")
+	private List<DetallePedido> detallePedido;
 	
 	@ManyToOne
 	@JoinColumn(name = "CODIGOCLIENTE")
@@ -99,6 +103,22 @@ public class Pedido {
 	}
 	public void setComentPedido(String comentPedido) {
 		this.comentPedido = comentPedido;
+	}
+
+	public List<DetallePedido> getDetallePedido() {
+		return detallePedido;
+	}
+
+	public void setDetallePedido(List<DetallePedido> detallePedido) {
+		this.detallePedido = detallePedido;
+	}
+
+	public Clientes getPedidoCliente() {
+		return pedidoCliente;
+	}
+
+	public void setPedidoCliente(Clientes pedidoCliente) {
+		this.pedidoCliente = pedidoCliente;
 	}
 	
 	

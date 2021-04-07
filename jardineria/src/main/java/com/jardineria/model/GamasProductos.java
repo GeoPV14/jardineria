@@ -22,7 +22,7 @@ public class GamasProductos {
 	@Column(name = "GAMA", length = 50, nullable = false)
 	private String gama;
 	
-	@OneToMany(mappedBy = "gamasProductos")
+	@OneToMany(mappedBy = "gamaProducto")
 	private List<Productos> productoList;
 
 	public GamasProductos() {

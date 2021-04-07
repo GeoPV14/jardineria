@@ -13,35 +13,39 @@ import javax.persistence.Table;
 @Table(name="PAGOS")
 public class Pagos {
 
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "CODIGOCLIENTE")
-	private Clientes codigoCliente;
+	private Clientes clientes;
+		
 	@Column(name="FORMAPAGO")
 	private  String formaPAgo;
+	
 	@Id
 	@Column(name="IDTRANSACCION", length = 3, nullable = false)
 	private String idTransaccion;
+	
 	@Column(name="FECHAPAGO")
 	private Date fechaPago;
+	
 	@Column(name="CANTIDAD")
 	private double cantidad;
 	
 	public Pagos() {
 	}
-	public Pagos(Clientes codigoCliente, String formaPAgo, String idTransaccion, Date fechaPago, double cantidad) {
-		this.codigoCliente = codigoCliente;
+	
+	public Pagos(Clientes clientes, String formaPAgo, String idTransaccion, Date fechaPago, double cantidad) {
+		this.clientes = clientes;
 		this.formaPAgo = formaPAgo;
 		this.idTransaccion = idTransaccion;
 		this.fechaPago = fechaPago;
 		this.cantidad = cantidad;
 	}
+	
 	public Clientes getCodigoCliente() {
-		return codigoCliente;
+		return clientes;
 	}
-	public void setCodigoCliente(Clientes codigoCliente) {
-		this.codigoCliente = codigoCliente;
+	public void setCodigoCliente(Clientes clientes) {
+		this.clientes = clientes;
 	}
 	public String getFormaPAgo() {
 		return formaPAgo;

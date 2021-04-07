@@ -61,7 +61,7 @@ public class Clientes {
 	@JoinColumn(name = "CODIGOEMPLEADO")
 	private Empleados empleado;
 	
-	@OneToMany(mappedBy = "clientes")
+	@OneToMany(mappedBy = "pedidoCliente")
 	private List<Pedido> pedidoList;
 
 	public Clientes() {
@@ -175,6 +175,30 @@ public class Clientes {
 
 	public void setLimiteCredito(double limiteCredito) {
 		this.limiteCredito = limiteCredito;
+	}
+
+	public List<Pagos> getPagoList() {
+		return pagoList;
+	}
+
+	public void setPagoList(List<Pagos> pagoList) {
+		this.pagoList = pagoList;
+	}
+
+	public Empleados getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleados empleado) {
+		this.empleado = empleado;
+	}
+
+	public List<Pedido> getPedidoList() {
+		return pedidoList;
+	}
+
+	public void setPedidoList(List<Pedido> pedidoList) {
+		this.pedidoList = pedidoList;
 	}
 	
 }
