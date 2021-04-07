@@ -58,7 +58,7 @@ public class Clientes {
 	private List<Pagos> pagoList;
 	
 	@ManyToOne 
-	@JoinColumn(name = "CODIGOEMPLEADO")
+	@JoinColumn(name = "CODIGOEMPLEADOREPVENTAS")
 	private Empleados empleado;
 	
 	@OneToMany(mappedBy = "pedidoCliente")
