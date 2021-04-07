@@ -73,6 +73,7 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
 			DetallePedidoBean detallePedidoBean = new DetallePedidoBean();
 			
 			BeanUtils.copyProperties(detallePedido, detallePedidoBean);
+			detallePedidoBeanList.add(detallePedidoBean);
 			
 		}
 		

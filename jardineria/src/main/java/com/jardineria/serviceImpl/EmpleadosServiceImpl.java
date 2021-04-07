@@ -76,6 +76,7 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 			EmpleadosBean empleadosBean = new EmpleadosBean();
 			
 			BeanUtils.copyProperties(empleado, empleadosBean);
+			empleadosBeanList.add(empleadosBean);
 		}
 		return empleadosBeanList;
 	}
