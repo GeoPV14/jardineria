@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jardineria.bean.BuscaTodosJefes;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.service.EmpleadosService;
 
@@ -48,6 +49,11 @@ public class EmpleadosController {
 	@GetMapping("/findAll")
 	public ResponseEntity<List<EmpleadosBean>> BuscarTodo(){
 		return new ResponseEntity<>(this.empleadosService.findAllEmpleados(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllJefes")
+	public ResponseEntity<List<BuscaTodosJefes>> BuscarTodosJefes(){
+		return new ResponseEntity<>(this.empleadosService.findAllJefes(),HttpStatus.OK);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jardineria.bean.BuscaTodosJefes;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.model.Empleados;
 import com.jardineria.repository.EmpleadosRepository;
@@ -79,6 +80,25 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 			empleadosBeanList.add(empleadosBean);
 		}
 		return empleadosBeanList;
+	}
+
+	@Override
+	public List<BuscaTodosJefes> findAllJefes() {
+		List<Empleados> empleadosList = this.empleadosRepo.findAllAEmpleados();
+		List<BuscaTodosJefes> todosJefesList = new ArrayList<>();
+		
+		for (Empleados empleado : empleadosList) {
+			BuscaTodosJefes empleadosJefesean = new BuscaTodosJefes();
+			
+				
+				empleadosJefesean.setNombre(empleado.getNombre());
+				empleadosJefesean.setApellido1(empleado.getApellido1());
+				empleadosJefesean.setApellido2(empleado.getApellido2());
+				todosJefesList.add(empleadosJefesean);
+			
+			
+		}
+		return todosJefesList;
 	}
 
 }

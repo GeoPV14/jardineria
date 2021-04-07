@@ -148,6 +148,13 @@ public class Empleados {
 		this.empleados = empleados;
 	}
 
+	@Override
+	public String toString() {
+		return "Empleados [codigoEmpleado=" + codigoEmpleado + ", nombre=" + nombre + ", apellido1=" + apellido1
+				+ ", apellido2=" + apellido2 + ", extension=" + extension + ", email=" + email + ", puesto=" + puesto
+				+ ", oficina=" + oficina + ", jefe=" + jefe + ", empleados=" + empleados + "]";
+	}
+
 	
 	
 		
