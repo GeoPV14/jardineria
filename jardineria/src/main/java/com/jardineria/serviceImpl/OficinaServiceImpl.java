@@ -26,6 +26,7 @@ public class OficinaServiceImpl implements OficinaService{
 		
 		Oficina oficina = new Oficina();
 		
+		oficina.setCodOficina(oficinaBean.getCodOficina());
 		oficina.setCiudad(oficinaBean.getCiudad());
 		oficina.setPais(oficinaBean.getPais());
 		oficina.setRegion(oficinaBean.getRegion());
@@ -35,7 +36,7 @@ public class OficinaServiceImpl implements OficinaService{
 		oficina.setLineDirec01(oficinaBean.getLineDirec01());
 		oficina.setLineDirec02(oficinaBean.getLineDirec02());
 		
-		oficeRepo.save(oficina);
+		this.oficeRepo.save(oficina);
 				
 		return oficina.getCodOficina();
 	}
