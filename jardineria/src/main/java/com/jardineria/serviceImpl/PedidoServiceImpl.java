@@ -1,12 +1,14 @@
 package com.jardineria.serviceImpl;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +26,13 @@ public class PedidoServiceImpl implements PedidoService{
 	private PedidoRepository pedidoRepo;
 
 	@Override
-	public boolean savePedido(PedidoBean pedidoBean) {
+	public String savePedido(PedidoBean pedidoBean) {
 		
 		Pedido pedido = new Pedido();
+		Date date = new Date();
 		
 		pedido.setCodPedido(pedidoBean.getCodPedido());
-		pedido.setFechPedido(pedidoBean.getFechPedido());
+		pedido.setFechPedido(date);
 		pedido.setFechEsperada(pedidoBean.getFechEsperada());
 		pedido.setFechEntrega(pedidoBean.getFechEntrega());
 		pedido.setEstado(pedidoBean.getEstado());
@@ -38,40 +41,57 @@ public class PedidoServiceImpl implements PedidoService{
 
 		this.pedidoRepo.save(pedido);
 		
-		return true;
+		return pedido.getCodPedido();
 	}
 
 	@Override
 	public boolean updatePedido(PedidoBean pedidoBean) {
-		
-
+		Pedido pedido = this.pedidoRepo.findById(pedidoBean.getCodPedido()).orElseThrow();
 		Date date = new Date();
 		
-		Pedido p = new Pedido();
+		pedido.setFechPedido(date);
+		pedido.setFechEsperada(pedidoBean.getFechEsperada());
+		pedido.setFechEntrega(pedidoBean.getFechEntrega());
+		pedido.setEstado(pedidoBean.getEstado());
+		pedido.setComentPedido(pedidoBean.getComentPedido());
 		
-		p.setFechPedido(date);
-		
+		this.pedidoRepo.save(pedido);
 
-		return false;
+		return true;
 	}
 
 	@Override
 	public PedidoBean findPedidoById(String idPedido) {
 		
-		return null;
+		Pedido pedido = this.pedidoRepo.findById(idPedido).orElseThrow();
+		PedidoBean pedidoBean = new PedidoBean();
+		
+		BeanUtils.copyProperties(pedido, pedidoBean);
+		
+		return pedidoBean;
 	}
 
 	@Override
 	public List<PedidoBean> mostrarPedido() {
+		List<Pedido> pedidoList = this.pedidoRepo.findAll();
+		List<PedidoBean> pedidoBeanList = new ArrayList<>();
 		
-		return null;
+		for(Pedido pedido: pedidoList) {
+			PedidoBean pedidoBean = new PedidoBean();
+			BeanUtils.copyProperties(pedido, pedidoBean);
+			pedidoBeanList.add(pedidoBean);
+		}
+		
+		return pedidoBeanList;
 	}
 
 	@Override
 	public boolean deletePedidoById(String idPedido) {
 		
-		return false;
+		Pedido pedido = this.pedidoRepo.findById(idPedido).orElseThrow();
+		this.pedidoRepo.delete(pedido);
+		
+		return true;
 	}
-	
 
 }
