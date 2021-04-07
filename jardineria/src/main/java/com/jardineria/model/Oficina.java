@@ -14,28 +14,28 @@ import javax.persistence.Table;
 public class Oficina {
 	
 	@Id
-	@Column(name = "CODIGOOFICINA", nullable = false)
+	@Column(name = "CODIGOOFICINA", length = 15, nullable = false)
 	private String codOficina;
 	
-	@Column(name = "CIUDAD", nullable = false)
+	@Column(name = "CIUDAD", length = 50, nullable = false)
 	private String ciudad;
 	
-	@Column(name = "PAIS", nullable = false)
+	@Column(name = "PAIS", length = 50, nullable = false)
 	private String pais;
 	
-	@Column(name = "REGION")
+	@Column(name = "REGION", length = 50)
 	private String region;
 	
-	@Column(name = "CODIGOPOSTAL", nullable = false)
+	@Column(name = "CODIGOPOSTAL", length = 50, nullable = false)
 	private String cp;
 	
-	@Column(name = "TELEFONO", nullable = false)
+	@Column(name = "TELEFONO", length = 50, nullable = false)
 	private String telefono;
 	
-	@Column(name = "LINEADIRECCION1", nullable = false)
+	@Column(name = "LINEADIRECCION1", length = 50, nullable = false)
 	private String lineDirec01;
 	
-	@Column(name = "LINEADIRECCION2")
+	@Column(name = "LINEADIRECCION2", length = 50)
 	private String lineDirec02;
 	
 	/* * * Relaciones * * */
