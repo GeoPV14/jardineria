@@ -29,7 +29,7 @@ public class GamasProductosController {
 	}
 	
 	@GetMapping("/findById/{id}")
-	public ResponseEntity<GamasProductosBean> mostrarGamaProducto(@PathVariable Integer id){
+	public ResponseEntity<GamasProductosBean> mostrarGamaProducto(@PathVariable String id){
 		return new ResponseEntity<>(this.gamaProductoService.findByIdGamaProducto(id), HttpStatus.OK);
 	}
 	
@@ -44,7 +44,7 @@ public class GamasProductosController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Boolean> eliminarGamaProducto(@PathVariable("id") Integer id){
+	public ResponseEntity<Boolean> eliminarGamaProducto(@PathVariable("id") String id){
 		return new ResponseEntity<>(this.gamaProductoService.deleteGamaProducto(id), HttpStatus.OK);
 	}
 }

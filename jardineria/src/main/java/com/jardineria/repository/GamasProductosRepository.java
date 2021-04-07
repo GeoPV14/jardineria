@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.jardineria.model.GamasProductos;
 
 @Repository
-public interface GamasProductosRepository extends JpaRepository<GamasProductos, Integer>{
+public interface GamasProductosRepository extends JpaRepository<GamasProductos, String>{
 
+	public GamasProductos findByGama(String id);
 }

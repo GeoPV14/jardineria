@@ -15,10 +15,6 @@ import javax.persistence.Table;
 public class GamasProductos {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "CODIGOGAMA")
-	private int codigoGama;
-	
 	@Column(name = "GAMA", length = 50, nullable = false)
 	private String gama;
 	
@@ -27,19 +23,6 @@ public class GamasProductos {
 
 	public GamasProductos() {
 		super();
-	}
-
-	public GamasProductos(int codigoGama) {
-		super();
-		this.codigoGama = codigoGama;
-	}
-
-	public int getCodigoGama() {
-		return codigoGama;
-	}
-
-	public void setCodigoGama(int codigoGama) {
-		this.codigoGama = codigoGama;
 	}
 
 	public String getGama() {
