@@ -30,8 +30,8 @@ public class GamasProductosServiceImpl implements GamasProductosService{
 	}
 
 	@Override
-	public GamasProductosBean findByIdGamaProducto(Integer id) {
-		GamasProductos gamaProductos = this.gamasProductosRepo.findById(id).orElseThrow();
+	public GamasProductosBean findByIdGamaProducto(String id) {
+		GamasProductos gamaProductos = this.gamasProductosRepo.findByGama(id);
 		GamasProductosBean gamaProductosBean = new GamasProductosBean();
 		BeanUtils.copyProperties(gamaProductos, gamaProductosBean);
 		return gamaProductosBean;
@@ -53,7 +53,7 @@ public class GamasProductosServiceImpl implements GamasProductosService{
 	@Override
 	public boolean updateGamaProducto(GamasProductosBean gamaProductoBean) {
 		
-		GamasProductos gamaProducto = this.gamasProductosRepo.findById(gamaProductoBean.getCodigoGama()).orElseThrow();
+		GamasProductos gamaProducto = this.gamasProductosRepo.findByGama(gamaProductoBean.getGama());
 		BeanUtils.copyProperties(gamaProductoBean, gamaProducto);
 		this.gamasProductosRepo.save(gamaProducto);
 		
