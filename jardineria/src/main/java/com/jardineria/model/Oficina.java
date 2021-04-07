@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Oficina {
 	
 	@Id
-	@Column(name = "CODIGOOFICINA", length = 3, nullable = false)
+	@Column(name = "CODIGOOFICINA", nullable = false)
 	private String codOficina;
 	
 	@Column(name = "CIUDAD", nullable = false)

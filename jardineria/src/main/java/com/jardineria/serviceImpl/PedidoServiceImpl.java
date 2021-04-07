@@ -24,7 +24,7 @@ public class PedidoServiceImpl implements PedidoService{
 	private PedidoRepository pedidoRepo;
 
 	@Override
-	public String savePedido(PedidoBean pedidoBean) {
+	public boolean savePedido(PedidoBean pedidoBean) {
 		
 		Pedido pedido = new Pedido();
 		
@@ -36,9 +36,9 @@ public class PedidoServiceImpl implements PedidoService{
 		pedido.setComentPedido(pedidoBean.getComentPedido());
 		
 
-		pedidoRepo.save(pedido);
+		this.pedidoRepo.save(pedido);
 		
-		return pedido.getCodPedido();
+		return true;
 	}
 
 	@Override

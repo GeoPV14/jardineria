@@ -14,19 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jardineria.bean.OficinaBean;
 import com.jardineria.service.OficinaService;
 
-@RequestMapping(name = "/oficina")
 @RestController
+@RequestMapping("/oficina")
 public class OficinaController {
 
 	@Autowired
 	private OficinaService oficeService;
-	
-	@PostMapping(name = "/save")
+	@PostMapping("/save")
 	public ResponseEntity<String> guardarOficina(@RequestBody OficinaBean oficinaBean){
 		return new ResponseEntity<>(this.oficeService.saveOficina(oficinaBean), HttpStatus.OK);
 	}
 
-	@GetMapping(name = "/findAll")
+	@GetMapping("/findAll")
 	public ResponseEntity<List<OficinaBean>> findAll(){
 		return new ResponseEntity<>(this.oficeService.mostrarOficina(), HttpStatus.OK);
 	}
