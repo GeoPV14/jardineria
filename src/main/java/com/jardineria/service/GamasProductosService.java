@@ -7,7 +7,7 @@ import com.jardineria.bean.GamasProductosBean;
 public interface GamasProductosService {
 	
 	public boolean saveGamaProducto(GamasProductosBean gamaProductoBean);
-	public GamasProductosBean findByIdGamaProducto(Integer id);
+	public GamasProductosBean findByIdGamaProducto(String id);
 	public List<GamasProductosBean> findAllGamasProductos();
 	public boolean updateGamaProducto(GamasProductosBean gamaProductoBean);
 	public boolean deleteGamaProducto(Integer id);
