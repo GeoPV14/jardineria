@@ -43,14 +43,23 @@ public class OficinaServiceImpl implements OficinaService{
 
 	@Override
 	public boolean updateOficina(OficinaBean oficinaBean) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Oficina oficina = this.oficeRepo.findById(oficinaBean.getCodOficina()).orElseThrow();
+		BeanUtils.copyProperties(oficinaBean, oficina);
+		this.oficeRepo.save(oficina);
+		
+		return true;
 	}
 
 	@Override
 	public OficinaBean findOficinaById(String idOficina) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Oficina oficina = this.oficeRepo.findById(idOficina).orElseThrow();
+		OficinaBean oficeBean = new OficinaBean();
+		
+		BeanUtils.copyProperties(oficina, oficeBean);
+		
+		return oficeBean;
 	}
 
 	@Override
@@ -70,8 +79,11 @@ public class OficinaServiceImpl implements OficinaService{
 
 	@Override
 	public boolean deleteOficinaById(String idOficina) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		Oficina oficina = this.oficeRepo.findById(idOficina).orElseThrow();
+		this.oficeRepo.delete(oficina);
+		
+		return true;
 	}
 
 }
