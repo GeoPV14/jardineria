@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.DetallePedidoBean;
 import com.jardineria.bean.DetallePedidoCantidadPeticionesBean;
+import com.jardineria.bean.DetallePedidoProdNoPedidosBean;
 import com.jardineria.service.DetallePedidoService;
 
 @RestController
@@ -53,5 +54,10 @@ public class DetallePedidoController {
 	@GetMapping("/findAllCodigoCantidad")
 	public ResponseEntity<List<DetallePedidoCantidadPeticionesBean>> BuscarTodoCodigoCantidad(){
 		return new ResponseEntity<>(this.detallePedidoService.findCantidadPeticionesProducto(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/findProdNoSolicitados")
+	public ResponseEntity<List<DetallePedidoProdNoPedidosBean>> mostrarProductosNoPedidos(){
+		return new ResponseEntity<>(this.detallePedidoService.ProductosNoPedidos(), HttpStatus.OK);
 	}
 }

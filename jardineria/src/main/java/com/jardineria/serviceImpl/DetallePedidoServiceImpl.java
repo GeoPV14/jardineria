@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.DetallePedidoBean;
 import com.jardineria.bean.DetallePedidoCantidadPeticionesBean;
+import com.jardineria.bean.DetallePedidoProdNoPedidosBean;
 import com.jardineria.model.DetallePedido;
 import com.jardineria.repository.DetallePedidoRepository;
 import com.jardineria.service.DetallePedidoService;
@@ -86,6 +87,12 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
 		List<DetallePedidoCantidadPeticionesBean> dPCPBeanList = this.detallePedidoRepo.buscaCantidadPeticionesProductos();
 		
 		return dPCPBeanList;
+	}
+
+	@Override
+	public List<DetallePedidoProdNoPedidosBean> ProductosNoPedidos() {
+		List<DetallePedidoProdNoPedidosBean> productNoPedidosBean = this.detallePedidoRepo.productosNuncaPedidos();
+		return productNoPedidosBean;
 	}
 
 }
