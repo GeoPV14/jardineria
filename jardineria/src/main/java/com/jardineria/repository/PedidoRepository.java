@@ -27,6 +27,12 @@ public interface PedidoRepository extends JpaRepository<Pedido, String>{
 			+ "      where p.codigopedido = dp.cod_pedido\r\n"
 			+ "      group by p.codigopedido) t);", nativeQuery = true)
 	List<CodigoPedidoBean> findCodPed();
+	
+	@Query(value = "select pe.codigopedido as CodPedido from pedidos pe, detallepedidos dp\r\n"
+			+ "where pe.codigopedido = dp.cod_pedido\r\n"
+			+ "group by pe.codigopedido\r\n"
+			+ "having count(*)>=6;", nativeQuery = true)
+	List<CodigoPedidoBean> mostrarCodPedMay6();
 
 
 }

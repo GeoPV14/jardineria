@@ -115,4 +115,12 @@ public class PedidoServiceImpl implements PedidoService{
 		return codListInterface;
 	}
 
+	@Override
+	public List<CodigoPedidoBean> mostrarCodPedMayor6() {
+		
+		List<CodigoPedidoBean> codPedidoBean = this.pedidoRepo.mostrarCodPedMay6();
+		
+		return codPedidoBean;
+	}
+
 }

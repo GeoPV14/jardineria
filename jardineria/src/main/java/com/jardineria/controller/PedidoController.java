@@ -60,5 +60,10 @@ public class PedidoController {
 	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedido(){
 		return new ResponseEntity<>(this.pedidoService.findCodPed(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findCodPedidoMayor6")
+	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedidoMayor6(){
+		return new ResponseEntity<>(this.pedidoService.mostrarCodPedMayor6(), HttpStatus.OK);
+	}
 
 }
