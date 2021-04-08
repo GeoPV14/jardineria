@@ -3,7 +3,6 @@ package com.jardineria.service;
 import java.util.List;
 import java.util.Set;
 
-import com.jardineria.bean.BuscaClientesConCompraEnMiami;
 import com.jardineria.bean.ClienteConPedidos;
 import com.jardineria.bean.ClientesPedidosMiami;
 import com.jardineria.bean.CodigoPedidoBean;
