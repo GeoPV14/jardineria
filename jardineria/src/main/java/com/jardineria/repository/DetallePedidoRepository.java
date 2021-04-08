@@ -17,12 +17,7 @@ public interface DetallePedidoRepository extends JpaRepository<DetallePedido, In
 	public List<DetallePedidoCantidadPeticionesBean> buscaCantidadPeticionesProductos();
 	
 
-	@Query(value="select p.gama, sum(dp.cantidad) as cantidad \r\n"
-			+ "      from detallepedidos dp, productos p\r\n"
-			+ "      where p.codigoproducto = dp.codigoproducto\r\n"
-			+ "      group by p.gama\r\n"
-			+ "      order by cantidad desc\r\n"
-			+ "      limit 1\r\n",nativeQuery = true)
+	@Query(value="select p.codigogama, sum(dp.cantidad) as cantidad  from detallepedidos dp, productos p where p.codigoproducto = dp.codigo_producto group by p.codigogama order by cantidad desc limit 1",nativeQuery = true)
 	public GamaMasVendida findGamaMasVendido();
 
 	@Query(value = "select p.codigoproducto as CodProduct, p.nombre as NomProduct, p.codigogama as CodGama \r\n"

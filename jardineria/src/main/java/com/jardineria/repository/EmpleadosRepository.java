@@ -17,11 +17,11 @@ public interface EmpleadosRepository extends JpaRepository<Empleados, Integer>{
 			+ "where codigo_jefe is null",nativeQuery = true)
 	public List<Empleados> findAllAEmpleados();
 	
-	@Query(value="SELECT e.NOMBRE empleadoNombre, e.APELLIDO1 EmpleadoApellidoM, e.APELLIDO2 EmpleadoApellidoP, \r\n"
-			+ "e.CODIGOOFICINA EmpleadoCodigoOficina, ej.NOMBRE JefeNombre, ej.APELLIDO1 JefeApellidoM, ej.APELLIDO2 JefeApellidoP, \r\n"
-			+ "ej.CODIGOOFICINA JefeCodigoOficina \r\n"
+	@Query(value="SELECT e.NOMBRE empleadoNombre, e.APELLIDO1 EmpleadoApellidoM, e.APELLIDO2 EmpleadoApellidoP,\r\n"
+			+ "e.COD_OFICINA EmpleadoCodigoOficina, ej.NOMBRE JefeNombre, ej.APELLIDO1 JefeApellidoM, ej.APELLIDO2 JefeApellidoP,\r\n"
+			+ "ej.COD_OFICINA JefeCodigoOficina\r\n"
 			+ "FROM empleados e\r\n"
 			+ "inner join empleados ej\r\n"
-			+ "on e.CODIGOEMPLEADO=ej.CODIGOJEFE", nativeQuery = true)
+			+ "on e.CODIGOEMPLEADO=ej.CODIGO_JEFE", nativeQuery = true)
 	public List<EmpleadoConJefe> findEmpleadoConJefe();
 }
