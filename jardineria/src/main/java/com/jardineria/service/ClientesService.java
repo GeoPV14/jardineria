@@ -5,6 +5,7 @@ import java.util.List;
 import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.bean.ClientesPaisBean;
+import com.jardineria.bean.NomPedidoFechaBean;
 
 public interface ClientesService {
 	
@@ -21,5 +22,7 @@ public interface ClientesService {
 	public List<String> findClientesPay2007();
 
 	public List<ClientesPaisBean> findClientesPorPais();
+	
+	public List<NomPedidoFechaBean> mostrarFueraDeTiempo();//Mostrar pedidos fuera de tiempo
 
 }
