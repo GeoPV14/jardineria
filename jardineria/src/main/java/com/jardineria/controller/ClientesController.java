@@ -71,7 +71,7 @@ public class ClientesController {
 	}
 
 	
-	@GetMapping("/findClientesPorPais")
+	@GetMapping("/findClientesPorPais") //Azta
 	public ResponseEntity<List<ClientesPaisBean>> clientesPorPais(){
 		return new ResponseEntity<>(this.clientesService.findClientesPorPais(), HttpStatus.OK);
 	}

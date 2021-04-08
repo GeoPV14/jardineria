@@ -62,12 +62,12 @@ public class PedidoController {
 		return new ResponseEntity<>(this.pedidoService.findCodPed(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/findCodPedidoMayor6")
+	@GetMapping("/findCodPedidoMayor6") //Azta
 	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedidoMayor6(){
 		return new ResponseEntity<>(this.pedidoService.mostrarCodPedMayor6(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/precioFinalPorPedido")
+	@GetMapping("/precioFinalPorPedido") //Azta
 	public ResponseEntity<List<PedidoFinalPriceBean>> precioFinalPorPedido(){
 		return new ResponseEntity<>(this.pedidoService.mostrarPrecioFinalPorPedido(), HttpStatus.OK);
 	} 

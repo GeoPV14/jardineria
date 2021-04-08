@@ -48,7 +48,7 @@ public class GamasProductosController {
 		return new ResponseEntity<>(this.gamaProductoService.deleteGamaProducto(id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/contarGamasProd")
+	@GetMapping("/contarGamasProd") //Azta
 	public ResponseEntity<List<GamasProductosBean>> contarGamasProductos(){
 		return new ResponseEntity<>(this.gamaProductoService.contarAllGamasProductos(), HttpStatus.OK);
 	}

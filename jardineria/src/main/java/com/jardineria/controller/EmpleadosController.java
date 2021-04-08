@@ -69,7 +69,7 @@ public class EmpleadosController {
 		return new ResponseEntity<>(this.empleadosService.countEmp(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/findEmplBarcelona")
+	@GetMapping("/findEmplBarcelona") //Azta
 	public ResponseEntity<List<EmpleadoNomApellBean>> mostrarEmplEnBarcelona(){
 		return new ResponseEntity<>(this.empleadosService.findEmpleadosTrabajanBarcelona(), HttpStatus.OK);
 	}

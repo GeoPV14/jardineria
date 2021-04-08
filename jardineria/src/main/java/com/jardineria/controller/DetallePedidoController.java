@@ -56,7 +56,7 @@ public class DetallePedidoController {
 		return new ResponseEntity<>(this.detallePedidoService.findCantidadPeticionesProducto(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/findProdNoSolicitados")
+	@GetMapping("/findProdNoSolicitados") //Azta
 	public ResponseEntity<List<DetallePedidoProdNoPedidosBean>> mostrarProductosNoPedidos(){
 		return new ResponseEntity<>(this.detallePedidoService.ProductosNoPedidos(), HttpStatus.OK);
 	}
