@@ -49,7 +49,7 @@ public class OficinaController {
 		return new ResponseEntity<>(this.oficeService.updateOficina(oficinaBean), HttpStatus.OK);
 	}
 	
-	@GetMapping("/finAllEsp")
+	@GetMapping("/findAllEsp")
 	public ResponseEntity<List<OficinasEspanaBean>> buscarOficinasEspana(){
 		return new ResponseEntity<>(this.oficeService.findOfEsp(), HttpStatus.OK);
 	}

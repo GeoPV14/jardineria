@@ -13,6 +13,6 @@ public interface EmpleadosRepository extends JpaRepository<Empleados, Integer>{
 	
 	@Query(value="select * \r\n"
 			+ "from empleados \r\n"
-			+ "where codigojefe is null",nativeQuery = true)
+			+ "where codigo_jefe is null",nativeQuery = true)
 	public List<Empleados> findAllAEmpleados();
 }
