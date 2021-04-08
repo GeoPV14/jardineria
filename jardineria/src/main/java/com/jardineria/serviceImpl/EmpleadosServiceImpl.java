@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.BuscaTodosJefes;
 import com.jardineria.bean.EmpleadoConJefe;
+import com.jardineria.bean.EmpleadoNomApellBean;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.bean.EmpleadosCountBean;
 import com.jardineria.bean.EmpleadosNyCBean;
@@ -130,9 +131,26 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 	}
 
 	@Override
+
 	public List<EmpleadoConJefe> findEmpleadoConJefe() {
 		List<EmpleadoConJefe> empleadosConJefesBeanList = this.empleadosRepo.findEmpleadoConJefe();
-		return empleadosConJefesBeanList;
+		return empleadosConJefesBeanList;}
+
+	public List<EmpleadoNomApellBean> findEmpleadosTrabajanBarcelona() {
+		
+		List<Empleados> empleadosList = this.empleadosRepo.findAll();
+		List<EmpleadoNomApellBean> empleadosNomBeanList = new ArrayList<>();
+		
+		for(Empleados empl: empleadosList) {
+			if(empl.getOficina().getCiudad().equals("Barcelona")) {
+				EmpleadoNomApellBean emplBean = new EmpleadoNomApellBean(); 
+				BeanUtils.copyProperties(empl, emplBean);	
+				empleadosNomBeanList.add(emplBean);
+			}
+		}
+		
+		return empleadosNomBeanList;
+
 	}
 
 }

@@ -19,6 +19,7 @@ import com.jardineria.bean.ClientesPedidosMiami;
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
 import com.jardineria.model.Clientes;
+import com.jardineria.bean.PedidoFinalPriceBean;
 import com.jardineria.model.Pedido;
 import com.jardineria.repository.PedidoRepository;
 import com.jardineria.service.PedidoService;
@@ -130,7 +131,22 @@ public class PedidoServiceImpl implements PedidoService{
 	@Override
 	public List<ClienteConPedidos> findClientesAndPedido() {
 		List<ClienteConPedidos> clientePEdidosList = this.pedidoRepo.findClientesAndPedido();
-		return clientePEdidosList;
+		return clientePEdidosList;}
+
+	public List<CodigoPedidoBean> mostrarCodPedMayor6() {
+		
+		List<CodigoPedidoBean> codPedidoBean = this.pedidoRepo.mostrarCodPedMay6();
+		
+		return codPedidoBean;
+	}
+
+	@Override
+	public List<PedidoFinalPriceBean> mostrarPrecioFinalPorPedido() {
+		
+		List<PedidoFinalPriceBean> pedidoFinalPriceBean = this.pedidoRepo.precioFinalProducto();
+		
+		return pedidoFinalPriceBean;
+
 	}
 
 }

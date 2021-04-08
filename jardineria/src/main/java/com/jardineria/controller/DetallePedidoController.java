@@ -16,7 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.DetallePedidoBean;
 import com.jardineria.bean.DetallePedidoCantidadPeticionesBean;
+
 import com.jardineria.bean.GamaMasVendida;
+
+import com.jardineria.bean.PedidosProductoGamaAromaticasCaroBean;
+import com.jardineria.bean.DetallePedidoProdNoPedidosBean;
+
 import com.jardineria.service.DetallePedidoService;
 
 @RestController
@@ -56,8 +61,19 @@ public class DetallePedidoController {
 		return new ResponseEntity<>(this.detallePedidoService.findCantidadPeticionesProducto(),HttpStatus.OK);
 	}
 	
+
 	@GetMapping("/gamaMasVendida")
 	public ResponseEntity<GamaMasVendida> gamaMasVendida(){
-		return new ResponseEntity<>(this.detallePedidoService.findGamaMasVendida(), HttpStatus.OK);
+		return new ResponseEntity<>(this.detallePedidoService.findGamaMasVendida(),HttpStatus.OK);}
+
+	@GetMapping("/findAllPedidosPGAC")
+	public ResponseEntity<List<PedidosProductoGamaAromaticasCaroBean>> BuscarTodosPedidosPGAC(){
+		return new ResponseEntity<>(this.detallePedidoService.findProductoGAC(),HttpStatus.OK);
+	}
+
+	@GetMapping("/findProdNoSolicitados") //Azta
+	public ResponseEntity<List<DetallePedidoProdNoPedidosBean>> mostrarProductosNoPedidos(){
+		return new ResponseEntity<>(this.detallePedidoService.ProductosNoPedidos(), HttpStatus.OK);
+
 	}
 }
