@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.BuscaTodosJefes;
+import com.jardineria.bean.EmpleadoNomApellBean;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.bean.EmpleadosCountBean;
 import com.jardineria.bean.EmpleadosNyCBean;
@@ -66,6 +67,11 @@ public class EmpleadosController {
 	@GetMapping("/countEmp")
 	public ResponseEntity<EmpleadosCountBean> contarTotalEmpleados(){
 		return new ResponseEntity<>(this.empleadosService.countEmp(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findEmplBarcelona")
+	public ResponseEntity<List<EmpleadoNomApellBean>> mostrarEmplEnBarcelona(){
+		return new ResponseEntity<>(this.empleadosService.findEmpleadosTrabajanBarcelona(), HttpStatus.OK);
 	}
 
 }

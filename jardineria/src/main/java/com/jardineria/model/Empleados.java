@@ -41,7 +41,7 @@ public class Empleados {
 	private String codOficina;*/
 	
 	@ManyToOne
-	@JoinColumn(name = "CODIGOOFICINA")
+	@JoinColumn(name = "COD_OFICINA")
 	private Oficina oficina;
 	
 	@ManyToOne
