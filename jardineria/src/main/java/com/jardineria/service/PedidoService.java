@@ -3,6 +3,7 @@ package com.jardineria.service;
 import java.util.List;
 import java.util.Set;
 
+import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
 
 public interface PedidoService {
@@ -13,5 +14,6 @@ public interface PedidoService {
 	public boolean deletePedidoById(String idPedido);
 	
 	public Set<String> findAllStatusPedido();
+	public List<CodigoPedidoBean> findCodPed();//Mostrar Codigos de pedidos por encima de la media
 
 }

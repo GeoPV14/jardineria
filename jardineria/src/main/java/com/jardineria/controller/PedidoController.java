@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
 import com.jardineria.service.PedidoService;
 
@@ -53,6 +54,11 @@ public class PedidoController {
 	@GetMapping("/findAllStatusPedidos") //Estados posibles de los pedidos
 	public ResponseEntity<Set<String>> findAllStatusPedidos(){
 		return new ResponseEntity<>(this.pedidoService.findAllStatusPedido(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/findCodPed")
+	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedido(){
+		return new ResponseEntity<>(this.pedidoService.findCodPed(), HttpStatus.OK);
 	}
 
 }

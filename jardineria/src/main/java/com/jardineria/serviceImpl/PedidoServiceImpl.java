@@ -13,6 +13,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
 import com.jardineria.model.Pedido;
 import com.jardineria.repository.PedidoRepository;
@@ -105,6 +106,13 @@ public class PedidoServiceImpl implements PedidoService{
 		}
 		
 		return estadoList;
+	}
+
+	@Override
+	public List<CodigoPedidoBean> findCodPed() {
+		List<CodigoPedidoBean> codListInterface = this.pedidoRepo.findCodPed();
+		
+		return codListInterface;
 	}
 
 }
