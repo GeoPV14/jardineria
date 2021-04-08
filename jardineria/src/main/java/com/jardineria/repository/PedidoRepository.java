@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.jardineria.bean.BuscaClientesConCompraEnMiami;
+import com.jardineria.bean.ClienteConPedidos;
+import com.jardineria.bean.ClientesPedidosMiami;
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.model.Pedido;
 
@@ -27,6 +30,21 @@ public interface PedidoRepository extends JpaRepository<Pedido, String>{
 			+ "      where p.codigopedido = dp.cod_pedido\r\n"
 			+ "      group by p.codigopedido) t);", nativeQuery = true)
 	List<CodigoPedidoBean> findCodPed();
+	
+	@Query(value="SELECT  distinct clientes.NOMBRECLIENTE, clientes.APELLIDOCONTACTO FROM jardineria.pedidos \r\n"
+			+ "inner join jardineria.clientes\r\n"
+			+ "on clientes.CODIGOCLIENTE=pedidos.CODIGOCLIENTE\r\n"
+			+ "where clientes.CIUDAD=\"Miami\" order by clientes.CODIGOCLIENTE",nativeQuery = true)
+	public List<ClientesPedidosMiami> findClientesConPagoDeMiami();
+	
+	@Query(value="select  p.codigopedido, \r\n"
+			+ "        p.fechapedido, \r\n"
+			+ "        p.fechaesperada, \r\n"
+			+ "        p.fechaentrega,\r\n"
+			+ "        c.nombrecliente\r\n"
+			+ "from pedidos p, clientes c\r\n"
+			+ "where p.CODIGOCLIENTE = c.CODIGOCLIENTE", nativeQuery = true)
+	public List<ClienteConPedidos> findClientesAndPedido();
 
 
 }

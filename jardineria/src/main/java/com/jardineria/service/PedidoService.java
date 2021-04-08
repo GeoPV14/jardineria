@@ -3,6 +3,9 @@ package com.jardineria.service;
 import java.util.List;
 import java.util.Set;
 
+import com.jardineria.bean.BuscaClientesConCompraEnMiami;
+import com.jardineria.bean.ClienteConPedidos;
+import com.jardineria.bean.ClientesPedidosMiami;
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
 
@@ -15,5 +18,7 @@ public interface PedidoService {
 	
 	public Set<String> findAllStatusPedido();
 	public List<CodigoPedidoBean> findCodPed();//Mostrar Codigos de pedidos por encima de la media
+	public List<ClientesPedidosMiami> findClientesConPagoDeMiami();
+	public List<ClienteConPedidos> findClientesAndPedido();
 
 }
