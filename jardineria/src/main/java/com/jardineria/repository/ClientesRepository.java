@@ -14,4 +14,5 @@ public interface ClientesRepository extends JpaRepository<Clientes, String>{
 	@Query(value="SELECT * FROM jardineria.clientes where pais = 'USA'", nativeQuery = true)
 	public List<Clientes> buscaClientesAmericanos();
 	
+	
 }

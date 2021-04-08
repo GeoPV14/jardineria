@@ -3,6 +3,7 @@ package com.jardineria.service;
 import java.util.List;
 
 import com.jardineria.bean.ClientesBean;
+import com.jardineria.bean.ClientesPaisBean;
 
 public interface ClientesService {
 	
@@ -13,4 +14,6 @@ public interface ClientesService {
 	public boolean deleteCliente(String id);
 
 	public List<ClientesBean> findClientesUSA();//busca clientes americanos
+	
+	public List<ClientesPaisBean> findClientesPorPais();
 }

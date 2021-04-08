@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.ClientesBean;
+import com.jardineria.bean.ClientesPaisBean;
 import com.jardineria.service.ClientesService;
 
 
@@ -54,4 +55,11 @@ public class ClientesController {
 	public ResponseEntity<List<ClientesBean>> mostrarClientesUSA(){
 		return new ResponseEntity<>(this.clientesService.findClientesUSA(), HttpStatus.OK);
 	}
+	
+	
+	@GetMapping("/findClientesPorPais")
+	public ResponseEntity<List<ClientesPaisBean>> clientesPorPais(){
+		return new ResponseEntity<>(this.clientesService.findClientesPorPais(), HttpStatus.OK);
+	}
+	
 }
