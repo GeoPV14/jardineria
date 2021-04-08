@@ -15,5 +15,7 @@ public interface PedidoService {
 	
 	public Set<String> findAllStatusPedido();
 	public List<CodigoPedidoBean> findCodPed();//Mostrar Codigos de pedidos por encima de la media
+	
+	public List<CodigoPedidoBean> mostrarCodPedMayor6();
 
 }
