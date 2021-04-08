@@ -200,5 +200,15 @@ public class Clientes {
 	public void setPedidoList(List<Pedido> pedidoList) {
 		this.pedidoList = pedidoList;
 	}
+
+	@Override
+	public String toString() {
+		return "Clientes [codigoCliente=" + codigoCliente + ", nombreCliente=" + nombreCliente + ", nombreContacto="
+				+ nombreContacto + ", apellidoContacto=" + apellidoContacto + ", telefono=" + telefono + ", fax=" + fax
+				+ ", lineaDireccion1=" + lineaDireccion1 + ", lineaDireccion2=" + lineaDireccion2 + ", ciudad=" + ciudad
+				+ ", region=" + region + ", pais=" + pais + ", codigoPostal=" + codigoPostal + ", limiteCredito="
+				+ limiteCredito + ", pagoList=" + pagoList + ", empleado=" + empleado + ", pedidoList=" + pedidoList
+				+ "]";
+	}
 	
 }

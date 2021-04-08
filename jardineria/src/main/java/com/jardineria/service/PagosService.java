@@ -2,6 +2,7 @@ package com.jardineria.service;
 
 import java.util.List;
 
+
 import com.jardineria.bean.PagosBean;
 
 public interface PagosService{
@@ -11,4 +12,5 @@ public interface PagosService{
 	public PagosBean findOPagosById(String idPago);
 	public List<PagosBean> mostrarPagos();
 	public boolean deletePagosById(String idPagos);
+	
 }

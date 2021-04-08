@@ -13,8 +13,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jardineria.bean.BuscaClientesConCompraEnMiami;
+import com.jardineria.bean.ClienteConPedidos;
+import com.jardineria.bean.ClientesPedidosMiami;
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
+import com.jardineria.model.Clientes;
 import com.jardineria.bean.PedidoFinalPriceBean;
 import com.jardineria.model.Pedido;
 import com.jardineria.repository.PedidoRepository;
@@ -117,6 +121,18 @@ public class PedidoServiceImpl implements PedidoService{
 	}
 
 	@Override
+	public List<ClientesPedidosMiami> findClientesConPagoDeMiami() {
+		List<ClientesPedidosMiami> clientesMiamiList =  this.pedidoRepo.findClientesConPagoDeMiami();
+	
+		
+		return clientesMiamiList;
+	}
+
+	@Override
+	public List<ClienteConPedidos> findClientesAndPedido() {
+		List<ClienteConPedidos> clientePEdidosList = this.pedidoRepo.findClientesAndPedido();
+		return clientePEdidosList;}
+
 	public List<CodigoPedidoBean> mostrarCodPedMayor6() {
 		
 		List<CodigoPedidoBean> codPedidoBean = this.pedidoRepo.mostrarCodPedMay6();
@@ -130,6 +146,7 @@ public class PedidoServiceImpl implements PedidoService{
 		List<PedidoFinalPriceBean> pedidoFinalPriceBean = this.pedidoRepo.precioFinalProducto();
 		
 		return pedidoFinalPriceBean;
+
 	}
 
 }

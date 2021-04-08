@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jardineria.bean.BuscaClientesConCompraEnMiami;
+import com.jardineria.bean.ClienteConPedidos;
+import com.jardineria.bean.ClientesPedidosMiami;
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
 import com.jardineria.bean.PedidoFinalPriceBean;
@@ -61,7 +64,17 @@ public class PedidoController {
 	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedido(){
 		return new ResponseEntity<>(this.pedidoService.findCodPed(), HttpStatus.OK);
 	}
+
+	@GetMapping("/findPedidoMiami")
+	public ResponseEntity<List<ClientesPedidosMiami>> mostrarClientesPedidosMiami(){
+		return new ResponseEntity<>(this.pedidoService.findClientesConPagoDeMiami(), HttpStatus.OK);
+	}
 	
+	@GetMapping("/findClienteConPedido")
+	public ResponseEntity<List<ClienteConPedidos>> mostrarClientesConPedidos(){
+		return new ResponseEntity<>(this.pedidoService.findClientesAndPedido(), HttpStatus.OK);
+	}
+
 	@GetMapping("/findCodPedidoMayor6") //Azta
 	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedidoMayor6(){
 		return new ResponseEntity<>(this.pedidoService.mostrarCodPedMayor6(), HttpStatus.OK);
@@ -71,5 +84,6 @@ public class PedidoController {
 	public ResponseEntity<List<PedidoFinalPriceBean>> precioFinalPorPedido(){
 		return new ResponseEntity<>(this.pedidoService.mostrarPrecioFinalPorPedido(), HttpStatus.OK);
 	} 
+
 
 }

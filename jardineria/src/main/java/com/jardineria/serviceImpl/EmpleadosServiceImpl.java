@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.BuscaTodosJefes;
+import com.jardineria.bean.EmpleadoConJefe;
 import com.jardineria.bean.EmpleadoNomApellBean;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.bean.EmpleadosCountBean;
@@ -130,6 +131,11 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 	}
 
 	@Override
+
+	public List<EmpleadoConJefe> findEmpleadoConJefe() {
+		List<EmpleadoConJefe> empleadosConJefesBeanList = this.empleadosRepo.findEmpleadoConJefe();
+		return empleadosConJefesBeanList;}
+
 	public List<EmpleadoNomApellBean> findEmpleadosTrabajanBarcelona() {
 		
 		List<Empleados> empleadosList = this.empleadosRepo.findAll();
@@ -144,6 +150,7 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 		}
 		
 		return empleadosNomBeanList;
+
 	}
 
 }
