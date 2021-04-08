@@ -3,6 +3,7 @@ package com.jardineria.service;
 import java.util.List;
 
 import com.jardineria.bean.DetallePedidoBean;
+import com.jardineria.bean.DetallePedidoCantidadPeticionesBean;
 
 public interface DetallePedidoService {
 	public Integer saveDetallePedido(DetallePedidoBean detallePedidoBean);//Create
@@ -11,5 +12,5 @@ public interface DetallePedidoService {
 	public boolean deleteDetallePedido(Integer idDetallePedidos);//Delete
 	public List<DetallePedidoBean> findAllDetallePedido();//ReadAll
 	
-
+	public List<DetallePedidoCantidadPeticionesBean> findCantidadPeticionesProducto();
 }

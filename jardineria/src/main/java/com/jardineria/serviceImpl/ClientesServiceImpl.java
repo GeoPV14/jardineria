@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.model.Clientes;
 import com.jardineria.repository.ClientesRepository;
@@ -83,6 +84,33 @@ public class ClientesServiceImpl implements ClientesService{
 		}
 		
 		return clientesBeanList;
+	}
+
+	@Override
+	public List<ClienteRepBean> findClientesWithRep() {
+		List<Clientes> clienteList = this.clientesRepo.buscaClientesConRep();
+		List<ClienteRepBean> clienteRepBeanList = new ArrayList<>();
+		
+		for(Clientes cliente : clienteList) {
+			ClienteRepBean clienteRep = new ClienteRepBean();
+			clienteRep.setNombreCliente(cliente.getNombreCliente());
+			clienteRep.setNombreRepEmp(cliente.getEmpleado().getNombre());
+			clienteRepBeanList.add(clienteRep);
+		}
+		
+		return clienteRepBeanList;
+	}
+
+	@Override
+	public List<String> findClientesPay2007() {
+		List<Clientes> clienteList = this.clientesRepo.buscaClientesPago2007();
+		List<String> nombreList = new ArrayList<>();
+		
+		for(Clientes cliente : clienteList) {
+			nombreList.add(cliente.getNombreCliente());
+		}
+		
+		return nombreList;
 	}
 
 }

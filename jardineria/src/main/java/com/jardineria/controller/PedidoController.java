@@ -1,6 +1,7 @@
 package com.jardineria.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,6 +48,11 @@ public class PedidoController {
 	@DeleteMapping("/delete/{IdPedido}")
 	public ResponseEntity<Boolean> eliminarPedido(@PathVariable("IdPedido") String IdPedido){
 		return new ResponseEntity<>(this.pedidoService.deletePedidoById(IdPedido), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllStatusPedidos") //Estados posibles de los pedidos
+	public ResponseEntity<Set<String>> findAllStatusPedidos(){
+		return new ResponseEntity<>(this.pedidoService.findAllStatusPedido(),HttpStatus.OK);
 	}
 
 }

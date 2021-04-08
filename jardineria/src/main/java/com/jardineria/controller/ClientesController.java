@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.service.ClientesService;
 
@@ -53,5 +54,15 @@ public class ClientesController {
 	@GetMapping("/findAllUsa")
 	public ResponseEntity<List<ClientesBean>> mostrarClientesUSA(){
 		return new ResponseEntity<>(this.clientesService.findClientesUSA(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllClientesWithRep") //Clientes con sus representantes de ventas(Empleados)
+	public ResponseEntity<List<ClienteRepBean>> mostrarClientesConRep(){
+		return new ResponseEntity<>(this.clientesService.findClientesWithRep(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllClientesPay2007") //Clientes con pagos en 2007
+	public ResponseEntity<List<String>> mostrarClientesConPagos2007(){
+		return new ResponseEntity<>(this.clientesService.findClientesPay2007(), HttpStatus.OK);
 	}
 }

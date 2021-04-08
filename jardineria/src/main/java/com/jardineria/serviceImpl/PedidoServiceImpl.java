@@ -3,8 +3,9 @@ package com.jardineria.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -92,6 +93,18 @@ public class PedidoServiceImpl implements PedidoService{
 		this.pedidoRepo.delete(pedido);
 		
 		return true;
+	}
+
+	@Override
+	public Set<String> findAllStatusPedido() {
+		List<Pedido> pedidoList = this.pedidoRepo.findAll();
+		Set<String> estadoList = new HashSet<>();
+		
+		for(Pedido pedido : pedidoList) {
+			estadoList.add(pedido.getEstado().toLowerCase());
+		}
+		
+		return estadoList;
 	}
 
 }

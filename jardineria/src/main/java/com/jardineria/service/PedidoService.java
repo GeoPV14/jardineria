@@ -1,6 +1,7 @@
 package com.jardineria.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.jardineria.bean.PedidoBean;
 
@@ -11,5 +12,6 @@ public interface PedidoService {
 	public List<PedidoBean> mostrarPedido();
 	public boolean deletePedidoById(String idPedido);
 	
+	public Set<String> findAllStatusPedido();
 
 }

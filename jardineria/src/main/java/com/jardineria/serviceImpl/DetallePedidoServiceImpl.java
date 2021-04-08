@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.DetallePedidoBean;
+import com.jardineria.bean.DetallePedidoCantidadPeticionesBean;
 import com.jardineria.model.DetallePedido;
 import com.jardineria.repository.DetallePedidoRepository;
 import com.jardineria.service.DetallePedidoService;
@@ -78,6 +79,13 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
 		}
 		
 		return detallePedidoBeanList;
+	}
+
+	@Override
+	public List<DetallePedidoCantidadPeticionesBean> findCantidadPeticionesProducto() {
+		List<DetallePedidoCantidadPeticionesBean> dPCPBeanList = this.detallePedidoRepo.buscaCantidadPeticionesProductos();
+		
+		return dPCPBeanList;
 	}
 
 }
