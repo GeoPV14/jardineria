@@ -25,10 +25,13 @@ public interface PedidoRepository extends JpaRepository<Pedido, String>{
 			+ "having count(*)>=6;", nativeQuery = true)
 	List<CodigoPedidoBean> mostrarCodPedMay6();
 	
-	@Query(value = "select p.codigopedido as CodProducto, sum(dp.cantidad * dp.PRECIOUNIDAD) as total"
+	@Query(value = "select p.codigopedido as CodPedido, sum(dp.cantidad * dp.PRECIOUNIDAD) as total"
 			+ " from pedidos p, detallepedidos dp"
 			+ " where p.codigopedido = dp.cod_pedido"
 			+ " group by p.codigopedido;", nativeQuery = true)
 	List<PedidoFinalPriceBean> precioFinalProducto();
+	
+	@Query(value = "SELECT PEDIDOS.CODIGOPEDIDO AS CodPedido, SUM(DETALLEPEDIDOS.PRECIOUNIDAD * DETALLEPEDIDOS.CANTIDAD) AS total FROM PEDIDOS, DETALLEPEDIDOS WHERE PEDIDOS.CODIGOPEDIDO = DETALLEPEDIDOS.COD_PEDIDO GROUP BY PEDIDOS.CODIGOPEDIDO", nativeQuery = true)
+	List<PedidoFinalPriceBean> pedidoTotal();
 
 }

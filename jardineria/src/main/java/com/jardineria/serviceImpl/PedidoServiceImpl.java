@@ -132,4 +132,10 @@ public class PedidoServiceImpl implements PedidoService{
 		return pedidoFinalPriceBean;
 	}
 
+	@Override
+	public List<PedidoFinalPriceBean> findAllPedidoPriceAll() {
+		List<PedidoFinalPriceBean> pedidoFinalPriceBean = this.pedidoRepo.precioFinalProducto();
+		return pedidoFinalPriceBean;
+	}
+
 }

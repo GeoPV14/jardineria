@@ -70,6 +70,11 @@ public class PedidoController {
 	@GetMapping("/precioFinalPorPedido") //Azta
 	public ResponseEntity<List<PedidoFinalPriceBean>> precioFinalPorPedido(){
 		return new ResponseEntity<>(this.pedidoService.mostrarPrecioFinalPorPedido(), HttpStatus.OK);
-	} 
+	}
+	
+	@GetMapping("/findAllPedidoPriceAll") //CodigoPedido con su total a pagar
+	public ResponseEntity<List<PedidoFinalPriceBean>> precioFinalProducto(){
+		return new ResponseEntity<>(this.pedidoService.findAllPedidoPriceAll(), HttpStatus.OK);
+	}
 
 }

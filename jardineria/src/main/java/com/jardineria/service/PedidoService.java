@@ -20,5 +20,6 @@ public interface PedidoService {
 	public List<CodigoPedidoBean> mostrarCodPedMayor6();
 	
 	public List<PedidoFinalPriceBean> mostrarPrecioFinalPorPedido();
+	public List<PedidoFinalPriceBean> findAllPedidoPriceAll();
 
 }
