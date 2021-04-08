@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.OficinaBean;
+import com.jardineria.bean.OficinasEspanaBean;
 import com.jardineria.model.Oficina;
 import com.jardineria.repository.OficinaRepository;
 import com.jardineria.service.OficinaService;
@@ -84,6 +85,23 @@ public class OficinaServiceImpl implements OficinaService{
 		this.oficeRepo.delete(oficina);
 		
 		return true;
+	}
+
+	
+	@Override
+	public List<OficinasEspanaBean> findOfEsp() {
+		List<Oficina> oficinaList = this.oficeRepo.findAll();
+		List<OficinasEspanaBean> oficinaEspListBean = new ArrayList<>();
+		
+		for(Oficina oficina : oficinaList) {
+			OficinasEspanaBean ofiEspBean = new OficinasEspanaBean();
+			
+			if(oficina.getPais().contentEquals("España")) {
+				BeanUtils.copyProperties(oficina, ofiEspBean);
+				oficinaEspListBean.add(ofiEspBean);
+			}
+		}
+		return oficinaEspListBean;
 	}
 
 }

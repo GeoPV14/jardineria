@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
+import com.jardineria.bean.ClientesPaisBean;
 import com.jardineria.service.ClientesService;
 
 
@@ -56,6 +57,7 @@ public class ClientesController {
 		return new ResponseEntity<>(this.clientesService.findClientesUSA(), HttpStatus.OK);
 	}
 	
+
 	@GetMapping("/findAllClientesWithRep") //Clientes con sus representantes de ventas(Empleados)
 	public ResponseEntity<List<ClienteRepBean>> mostrarClientesConRep(){
 		return new ResponseEntity<>(this.clientesService.findClientesWithRep(), HttpStatus.OK);
@@ -65,4 +67,11 @@ public class ClientesController {
 	public ResponseEntity<List<String>> mostrarClientesConPagos2007(){
 		return new ResponseEntity<>(this.clientesService.findClientesPay2007(), HttpStatus.OK);
 	}
+
+	
+	@GetMapping("/findClientesPorPais")
+	public ResponseEntity<List<ClientesPaisBean>> clientesPorPais(){
+		return new ResponseEntity<>(this.clientesService.findClientesPorPais(), HttpStatus.OK);
+	}
+	
 }

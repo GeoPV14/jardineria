@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
+import com.jardineria.bean.ClientesPaisBean;
 
 public interface ClientesService {
 	
@@ -15,6 +16,10 @@ public interface ClientesService {
 
 	public List<ClientesBean> findClientesUSA();//busca clientes americanos
 	
+
 	public List<ClienteRepBean> findClientesWithRep();
 	public List<String> findClientesPay2007();
+
+	public List<ClientesPaisBean> findClientesPorPais();
+
 }

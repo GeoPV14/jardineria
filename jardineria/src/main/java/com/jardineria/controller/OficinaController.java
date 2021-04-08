@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.OficinaBean;
+import com.jardineria.bean.OficinasEspanaBean;
 import com.jardineria.service.OficinaService;
 
 @RestController
@@ -46,6 +47,11 @@ public class OficinaController {
 	@PutMapping("/update")
 	public ResponseEntity<Boolean> actualizarOficina(@RequestBody OficinaBean oficinaBean){
 		return new ResponseEntity<>(this.oficeService.updateOficina(oficinaBean), HttpStatus.OK);
+	}
+	
+	@GetMapping("/finAllEsp")
+	public ResponseEntity<List<OficinasEspanaBean>> buscarOficinasEspana(){
+		return new ResponseEntity<>(this.oficeService.findOfEsp(), HttpStatus.OK);
 	}
 
 

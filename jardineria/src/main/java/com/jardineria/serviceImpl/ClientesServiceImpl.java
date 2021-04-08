@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
+import com.jardineria.bean.ClientesPaisBean;
 import com.jardineria.model.Clientes;
 import com.jardineria.repository.ClientesRepository;
 import com.jardineria.service.ClientesService;
@@ -111,6 +112,53 @@ public class ClientesServiceImpl implements ClientesService{
 		}
 		
 		return nombreList;
+	}	
+	
+	public List<ClientesPaisBean> findClientesPorPais() {
+		
+		List<Clientes> clientesList = this.clientesRepo.findAll();
+		List<ClientesPaisBean> clientesPaisBeanList = new ArrayList<>();
+		
+		ClientesPaisBean clienteMX = new ClientesPaisBean("MX", 0);
+		ClientesPaisBean clienteUSA = new ClientesPaisBean("USA", 0);
+		ClientesPaisBean clienteESP = new ClientesPaisBean("ESP", 0);
+		ClientesPaisBean clienteFRN = new ClientesPaisBean("FRAN", 0);
+		ClientesPaisBean clienteAUS = new ClientesPaisBean("AUS", 0);
+		ClientesPaisBean clienteUK = new ClientesPaisBean("UK", 0);
+		
+		int mx = 0, usa = 0, esp = 0, frn = 0, aus = 0, uk = 0;
+		
+		for(Clientes clientes : clientesList) {
+			if(clientes.getPais().equals("Mexico")) {
+				mx += 1;
+			}else if(clientes.getPais().equals("USA")) {
+				usa += 1;
+			}else if(clientes.getPais().equals("España") || clientes.getPais().equals("Spain")) {
+				esp += 1;
+			}else if(clientes.getPais().equals("France")) {
+				frn += 1;
+			}else if(clientes.getPais().equals("Australia")) {
+				aus += 1;
+			}else if(clientes.getPais().equals("United Kingdom")) {
+				uk += 1;
+			}//EndIfs	
+		}//EndFors
+		
+		clienteMX.setCountClient(mx);
+		clienteUSA.setCountClient(usa);
+		clienteESP.setCountClient(esp);
+		clienteFRN.setCountClient(frn);
+		clienteAUS.setCountClient(aus);
+		clienteUK.setCountClient(uk);
+		
+		clientesPaisBeanList.add(clienteUK);
+		clientesPaisBeanList.add(clienteAUS);
+		clientesPaisBeanList.add(clienteFRN);
+		clientesPaisBeanList.add(clienteESP);
+		clientesPaisBeanList.add(clienteUSA);
+		clientesPaisBeanList.add(clienteMX);
+		
+		return clientesPaisBeanList;
 	}
 
 }
