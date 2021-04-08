@@ -11,4 +11,6 @@ public interface GamasProductosService {
 	public List<GamasProductosBean> findAllGamasProductos();
 	public boolean updateGamaProducto(GamasProductosBean gamaProductoBean);
 	public boolean deleteGamaProducto(String id);
+	
+	public List<GamasProductosBean> contarAllGamasProductos();
 }

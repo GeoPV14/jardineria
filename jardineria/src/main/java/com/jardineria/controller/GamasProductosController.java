@@ -47,4 +47,10 @@ public class GamasProductosController {
 	public ResponseEntity<Boolean> eliminarGamaProducto(@PathVariable("id") String id){
 		return new ResponseEntity<>(this.gamaProductoService.deleteGamaProducto(id), HttpStatus.OK);
 	}
+	
+	@GetMapping("/contarGamasProd")
+	public ResponseEntity<List<GamasProductosBean>> contarGamasProductos(){
+		return new ResponseEntity<>(this.gamaProductoService.contarAllGamasProductos(), HttpStatus.OK);
+	}
+	
 }
