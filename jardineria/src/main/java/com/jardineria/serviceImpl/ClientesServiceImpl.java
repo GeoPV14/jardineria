@@ -106,13 +106,13 @@ public class ClientesServiceImpl implements ClientesService{
 				mx += 1;
 			}else if(clientes.getPais().equals("USA")) {
 				usa += 1;
-			}else if(clientes.getPais().equals("España")) {
+			}else if(clientes.getPais().equals("España") || clientes.getPais().equals("Spain")) {
 				esp += 1;
 			}else if(clientes.getPais().equals("France")) {
 				frn += 1;
 			}else if(clientes.getPais().equals("Australia")) {
 				aus += 1;
-			}else {
+			}else if(clientes.getPais().equals("United Kingdom")) {
 				uk += 1;
 			}//EndIfs	
 		}//EndFors
