@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
+import com.jardineria.bean.PedidoFinalPriceBean;
 import com.jardineria.model.Pedido;
 import com.jardineria.repository.PedidoRepository;
 import com.jardineria.service.PedidoService;
@@ -121,6 +122,14 @@ public class PedidoServiceImpl implements PedidoService{
 		List<CodigoPedidoBean> codPedidoBean = this.pedidoRepo.mostrarCodPedMay6();
 		
 		return codPedidoBean;
+	}
+
+	@Override
+	public List<PedidoFinalPriceBean> mostrarPrecioFinalPorPedido() {
+		
+		List<PedidoFinalPriceBean> pedidoFinalPriceBean = this.pedidoRepo.precioFinalProducto();
+		
+		return pedidoFinalPriceBean;
 	}
 
 }

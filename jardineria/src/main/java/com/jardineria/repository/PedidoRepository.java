@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jardineria.bean.CodigoPedidoBean;
+import com.jardineria.bean.PedidoFinalPriceBean;
 import com.jardineria.model.Pedido;
 
 
@@ -23,5 +24,11 @@ public interface PedidoRepository extends JpaRepository<Pedido, String>{
 			+ "group by pe.codigopedido\r\n"
 			+ "having count(*)>=6;", nativeQuery = true)
 	List<CodigoPedidoBean> mostrarCodPedMay6();
+	
+	@Query(value = "select p.codigopedido as CodProducto, sum(dp.cantidad * dp.PRECIOUNIDAD) as total"
+			+ " from pedidos p, detallepedidos dp"
+			+ " where p.codigopedido = dp.cod_pedido"
+			+ " group by p.codigopedido;", nativeQuery = true)
+	List<PedidoFinalPriceBean> precioFinalProducto();
 
 }
