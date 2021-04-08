@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jardineria.bean.NomPedidoFechaBean;
+import com.jardineria.bean.PagoClienteBean;
 import com.jardineria.model.Clientes;
 
 @Repository
@@ -23,4 +24,7 @@ public interface ClientesRepository extends JpaRepository<Clientes, String>{
 	
 	@Query(value = "SELECT P.CODIGOPEDIDO AS CodPedido, C.NOMBRECLIENTE AS NombreCliente, P.FECHAENTREGA AS FechEntrega, P.FECHAESPERADA AS FechEsperada FROM CLIENTES C, PEDIDOS P WHERE C.CODIGOCLIENTE = P.CODIGOCLIENTE AND P.FECHAESPERADA < P.FECHAENTREGA", nativeQuery = true)
 	List<NomPedidoFechaBean> mostrarFueraDeTiempo();
+	
+	@Query(value = "SELECT NOMBRECLIENTE AS NombreCliente, SUM(P.CANTIDAD) AS TotalPagado FROM CLIENTES C, PAGOS P WHERE C.CODIGOCLIENTE = P. CODIGOCLIENTE GROUP BY C.NOMBRECLIENTE", nativeQuery = true)
+	List<PagoClienteBean> totalPagadoPorCliente();
 }

@@ -18,6 +18,7 @@ import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.bean.ClientesPaisBean;
 import com.jardineria.bean.NomPedidoFechaBean;
+import com.jardineria.bean.PagoClienteBean;
 import com.jardineria.service.ClientesService;
 
 
@@ -78,5 +79,10 @@ public class ClientesController {
 	@GetMapping("/outTime")
 	public ResponseEntity<List<NomPedidoFechaBean>> pedidosFueraDeTiempo(){
 		return new ResponseEntity<>(this.clientesService.mostrarFueraDeTiempo(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/totalPay")
+	public ResponseEntity<List<PagoClienteBean>> totalPagadoPorCliente(){
+		return new ResponseEntity<>(this.clientesService.totalPagadoPorCliente(), HttpStatus.OK);
 	}
 }

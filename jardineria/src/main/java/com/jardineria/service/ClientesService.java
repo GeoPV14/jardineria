@@ -6,6 +6,7 @@ import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.bean.ClientesPaisBean;
 import com.jardineria.bean.NomPedidoFechaBean;
+import com.jardineria.bean.PagoClienteBean;
 
 public interface ClientesService {
 	
@@ -24,5 +25,6 @@ public interface ClientesService {
 	public List<ClientesPaisBean> findClientesPorPais();
 	
 	public List<NomPedidoFechaBean> mostrarFueraDeTiempo();//Mostrar pedidos fuera de tiempo
+	public List<PagoClienteBean> totalPagadoPorCliente();//Mostrar el total pagado por cliente
 
 }
