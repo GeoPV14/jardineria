@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.BuscaTodosJefes;
 import com.jardineria.bean.EmpleadosBean;
+import com.jardineria.bean.EmpleadosCountBean;
+import com.jardineria.bean.EmpleadosNyCBean;
 import com.jardineria.model.Empleados;
 import com.jardineria.repository.EmpleadosRepository;
 import com.jardineria.service.EmpleadosService;
@@ -99,6 +101,31 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 			
 		}
 		return todosJefesList;
+	}
+
+	@Override
+	public List<EmpleadosNyCBean> findEmpNyC() {
+		List<Empleados> empleadosList = this.empleadosRepo.findAll();
+		List<EmpleadosNyCBean> empleadoNyCListBean = new ArrayList<>();
+		
+		for(Empleados empleado : empleadosList) {
+			EmpleadosNyCBean empleadoNomCarBean = new EmpleadosNyCBean();
+			if(!empleado.getPuesto().contentEquals("Director Oficina")) {
+				BeanUtils.copyProperties(empleado, empleadoNomCarBean);
+				empleadoNyCListBean.add(empleadoNomCarBean);
+			}
+		}
+		return empleadoNyCListBean;
+	}
+
+	@Override
+	public EmpleadosCountBean countEmp() {
+		Long cantEmpl = this.empleadosRepo.count();
+		
+		EmpleadosCountBean empCount = new EmpleadosCountBean();
+		empCount.setEmpleados(cantEmpl);
+
+		return empCount;
 	}
 
 }

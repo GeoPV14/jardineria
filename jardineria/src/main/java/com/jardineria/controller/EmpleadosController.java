@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.BuscaTodosJefes;
 import com.jardineria.bean.EmpleadosBean;
+import com.jardineria.bean.EmpleadosCountBean;
+import com.jardineria.bean.EmpleadosNyCBean;
 import com.jardineria.service.EmpleadosService;
 
 @RestController
@@ -47,13 +49,23 @@ public class EmpleadosController {
 	}
 	
 	@GetMapping("/findAll")
-	public ResponseEntity<List<EmpleadosBean>> BuscarTodo(){
+	public ResponseEntity<List<EmpleadosBean>> buscarTodo(){
 		return new ResponseEntity<>(this.empleadosService.findAllEmpleados(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/findAllJefes")
 	public ResponseEntity<List<BuscaTodosJefes>> BuscarTodosJefes(){
 		return new ResponseEntity<>(this.empleadosService.findAllJefes(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/findAllSinDirOfi")
+	public ResponseEntity<List<EmpleadosNyCBean>> mostrarNombreYCargoSinDirOfi(){
+		return new ResponseEntity<>(this.empleadosService.findEmpNyC(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/countEmp")
+	public ResponseEntity<EmpleadosCountBean> contarTotalEmpleados(){
+		return new ResponseEntity<>(this.empleadosService.countEmp(), HttpStatus.OK);
 	}
 
 }
