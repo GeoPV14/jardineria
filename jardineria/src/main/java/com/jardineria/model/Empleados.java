@@ -37,9 +37,6 @@ public class Empleados {
 	@Column(name = "PUESTO", length = 50)
 	private String puesto;
 	
-	/*@Column(name = "CODIGOOFICINA", length = 10)
-	private String codOficina;*/
-	
 	@ManyToOne
 	@JoinColumn(name = "COD_OFICINA")
 	private Oficina oficina;

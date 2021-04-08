@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.bean.ClientesPaisBean;
+import com.jardineria.bean.NomPedidoFechaBean;
 import com.jardineria.service.ClientesService;
 
 
@@ -74,4 +75,8 @@ public class ClientesController {
 		return new ResponseEntity<>(this.clientesService.findClientesPorPais(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/outTime")
+	public ResponseEntity<List<NomPedidoFechaBean>> pedidosFueraDeTiempo(){
+		return new ResponseEntity<>(this.clientesService.mostrarFueraDeTiempo(), HttpStatus.OK);
+	}
 }

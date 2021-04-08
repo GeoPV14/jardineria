@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.jardineria.bean.ClienteRepBean;
 import com.jardineria.bean.ClientesBean;
 import com.jardineria.bean.ClientesPaisBean;
+import com.jardineria.bean.NomPedidoFechaBean;
 import com.jardineria.model.Clientes;
 import com.jardineria.repository.ClientesRepository;
 import com.jardineria.service.ClientesService;
@@ -159,6 +160,13 @@ public class ClientesServiceImpl implements ClientesService{
 		clientesPaisBeanList.add(clienteMX);
 		
 		return clientesPaisBeanList;
+	}
+
+	@Override
+	public List<NomPedidoFechaBean> mostrarFueraDeTiempo() {
+		List<NomPedidoFechaBean> nomPedFechListBean = this.clientesRepo.mostrarFueraDeTiempo();
+		
+		return nomPedFechListBean;
 	}
 
 }
