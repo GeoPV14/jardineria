@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
-import com.jardineria.bean.PedidosProductoGamaAromaticasCaroBean;
+import com.jardineria.bean.PedidoFinalPriceBean;
 
 public interface PedidoService {
 	public String savePedido(PedidoBean pedidoBean);
@@ -18,5 +18,7 @@ public interface PedidoService {
 	public List<CodigoPedidoBean> findCodPed();//Mostrar Codigos de pedidos por encima de la media
 	
 	public List<CodigoPedidoBean> mostrarCodPedMayor6();
+	
+	public List<PedidoFinalPriceBean> mostrarPrecioFinalPorPedido();
 
 }

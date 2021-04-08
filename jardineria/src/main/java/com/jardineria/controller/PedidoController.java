@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jardineria.bean.CodigoPedidoBean;
 import com.jardineria.bean.PedidoBean;
+import com.jardineria.bean.PedidoFinalPriceBean;
 import com.jardineria.service.PedidoService;
 
 @RequestMapping("/pedido")
@@ -61,9 +62,14 @@ public class PedidoController {
 		return new ResponseEntity<>(this.pedidoService.findCodPed(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/findCodPedidoMayor6")
+	@GetMapping("/findCodPedidoMayor6") //Azta
 	public ResponseEntity<List<CodigoPedidoBean>> mostrarCodPedidoMayor6(){
 		return new ResponseEntity<>(this.pedidoService.mostrarCodPedMayor6(), HttpStatus.OK);
 	}
+	
+	@GetMapping("/precioFinalPorPedido") //Azta
+	public ResponseEntity<List<PedidoFinalPriceBean>> precioFinalPorPedido(){
+		return new ResponseEntity<>(this.pedidoService.mostrarPrecioFinalPorPedido(), HttpStatus.OK);
+	} 
 
 }

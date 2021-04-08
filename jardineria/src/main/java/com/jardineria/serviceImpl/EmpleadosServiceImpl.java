@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jardineria.bean.BuscaTodosJefes;
+import com.jardineria.bean.EmpleadoNomApellBean;
 import com.jardineria.bean.EmpleadosBean;
 import com.jardineria.bean.EmpleadosCountBean;
 import com.jardineria.bean.EmpleadosNyCBean;
@@ -126,6 +127,23 @@ public class EmpleadosServiceImpl implements EmpleadosService {
 		empCount.setEmpleados(cantEmpl);
 
 		return empCount;
+	}
+
+	@Override
+	public List<EmpleadoNomApellBean> findEmpleadosTrabajanBarcelona() {
+		
+		List<Empleados> empleadosList = this.empleadosRepo.findAll();
+		List<EmpleadoNomApellBean> empleadosNomBeanList = new ArrayList<>();
+		
+		for(Empleados empl: empleadosList) {
+			if(empl.getOficina().getCiudad().equals("Barcelona")) {
+				EmpleadoNomApellBean emplBean = new EmpleadoNomApellBean(); 
+				BeanUtils.copyProperties(empl, emplBean);	
+				empleadosNomBeanList.add(emplBean);
+			}
+		}
+		
+		return empleadosNomBeanList;
 	}
 
 }

@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import com.jardineria.bean.DetallePedidoBean;
 import com.jardineria.bean.DetallePedidoCantidadPeticionesBean;
 import com.jardineria.bean.PedidosProductoGamaAromaticasCaroBean;
+import com.jardineria.bean.DetallePedidoProdNoPedidosBean;
+
 import com.jardineria.model.DetallePedido;
 import com.jardineria.model.Productos;
 import com.jardineria.repository.DetallePedidoRepository;
@@ -130,6 +132,12 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
 		}
 
 		return pedidosPGACList;
+	}
+
+	@Override
+	public List<DetallePedidoProdNoPedidosBean> ProductosNoPedidos() {
+		List<DetallePedidoProdNoPedidosBean> productNoPedidosBean = this.detallePedidoRepo.productosNuncaPedidos();
+		return productNoPedidosBean;
 	}
 
 }

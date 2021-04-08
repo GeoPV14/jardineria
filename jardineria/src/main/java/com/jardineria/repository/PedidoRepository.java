@@ -7,25 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jardineria.bean.CodigoPedidoBean;
+import com.jardineria.bean.PedidoFinalPriceBean;
 import com.jardineria.model.Pedido;
 
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, String>{
 	
-	@Query(value = "select pe.codigopedido as CodPedido\r\n"
-			+ "from pedidos pe\r\n"
-			+ "where\r\n"
-			+ "(select sum(dp.cantidad * dp.PRECIOUNIDAD) as total\r\n"
-			+ "      from pedidos p, detallepedidos dp\r\n"
-			+ "      where p.codigopedido = dp.cod_pedido and pe.codigopedido = p.codigopedido\r\n"
-			+ "      group by p.codigopedido)\r\n"
+	@Query(value = "SELECT PE.CODIGOPEDIDO AS CodPedido FROM PEDIDOS PE WHERE (SELECT SUM(DP.CANTIDAD * DP.PRECIOUNIDAD) AS TOTAL FROM PEDIDOS P, DETALLEPEDIDOS DP WHERE P.CODIGOPEDIDO = DP.COD_PEDIDO AND PE.CODIGOPEDIDO = P.CODIGOPEDIDO GROUP BY P.CODIGOPEDIDO)\r\n"
 			+ ">\r\n"
-			+ "(select avg(t.total)\r\n"
-			+ "from (select p.codigopedido, sum(dp.cantidad * dp.preciounidad) as total\r\n"
-			+ "      from pedidos p, detallepedidos dp\r\n"
-			+ "      where p.codigopedido = dp.cod_pedido\r\n"
-			+ "      group by p.codigopedido) t);", nativeQuery = true)
+			+ "(SELECT AVG(T.TOTAL) FROM (SELECT P.CODIGOPEDIDO, SUM(DP.CANTIDAD * DP.PRECIOUNIDAD) AS TOTAL FROM PEDIDOS P, DETALLEPEDIDOS DP WHERE P.CODIGOPEDIDO = DP.COD_PEDIDO GROUP BY P.CODIGOPEDIDO) T)", nativeQuery = true)
 	List<CodigoPedidoBean> findCodPed();
 	
 	@Query(value = "select pe.codigopedido as CodPedido from pedidos pe, detallepedidos dp\r\n"
@@ -33,6 +24,11 @@ public interface PedidoRepository extends JpaRepository<Pedido, String>{
 			+ "group by pe.codigopedido\r\n"
 			+ "having count(*)>=6;", nativeQuery = true)
 	List<CodigoPedidoBean> mostrarCodPedMay6();
-
+	
+	@Query(value = "select p.codigopedido as CodProducto, sum(dp.cantidad * dp.PRECIOUNIDAD) as total"
+			+ " from pedidos p, detallepedidos dp"
+			+ " where p.codigopedido = dp.cod_pedido"
+			+ " group by p.codigopedido;", nativeQuery = true)
+	List<PedidoFinalPriceBean> precioFinalProducto();
 
 }
